@@ -10,6 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
     private FirebaseAuth mAuth;
 
-    private TextView banner2;
+    private ImageView banner2;
     private EditText txtName, txtEmail, txtPassword, txtConfirmPassword, editTextDate;
     private Button btnRegister;
     ProgressDialog progressDialog;
