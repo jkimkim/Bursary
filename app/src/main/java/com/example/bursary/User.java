@@ -1,4 +1,6 @@
-package com.example.bursary;public class User {
+package com.example.bursary;
+
+public class User {
     private String name;
     private String email;
     private String password;
@@ -11,6 +13,9 @@ package com.example.bursary;public class User {
         this.password = password;
         this.confirmPassword = confirmPassword;
         this.date = date;
+    }
+
+    public User(String name, String email, String date) {
     }
 
     public String getName() {
