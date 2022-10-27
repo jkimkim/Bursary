@@ -12,153 +12,126 @@
     <!-- TextView: label register -->
 
     <!-- TextView: email input -->
-
-    <ImageView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="116dp"
-        android:alpha="0.3"
-        android:background="@drawable/lamulogo" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:textAlignment="center"
-        android:textColor="#000"
-        android:textSize="25sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="239dp" />
-
-
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/banner2"
-        android:background="@drawable/lamulogo"
-        android:layout_below="@+id/register"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/nameTil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/banner2"
-        android:layout_centerHorizontal="true">
-
-        <EditText
-            android:id="@+id/txtName"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:background="#81FFFFFF"
-            android:drawableLeft="@drawable/ic_baseline_perm_identity_24"
-            android:drawablePadding="10dp"
-            android:hint="Full name"
-            android:inputType="textPersonName"
-            android:padding="10dp" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="match_parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:id="@+id/emailTil"
-        android:layout_below="@+id/nameTil">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtEmail"
-            android:inputType="textEmailAddress"
-            android:hint="Email"
-            android:background="#81FFFFFF"
-            android:layout_margin="15dp"
-            android:padding="10dp"
-            android:drawableLeft="@drawable/ic_baseline_email_24"
-            android:drawablePadding="10dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <!-- TextView: input id no -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="116dp"
+                android:alpha="0.3"
+                android:background="@drawable/lamulogo" />
 
-    <!-- TextView: input birth date -->
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:id="@+id/birthTil"
-        android:layout_below="@+id/emailTil">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editTextDate"
-            android:inputType="date"
-            android:hint="D O B"
-            android:background="#81FFFFFF"
-            android:layout_margin="15dp"
-            android:padding="10dp"
-            android:drawableLeft="@drawable/ic_baseline_perm_identity_24"
-            android:drawablePadding="10dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Register"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="25sp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="239dp" />
 
 
-    <!-- TextView: input location -->
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/banner2"
+                android:background="@drawable/lamulogo"
+                android:layout_below="@+id/register"/>
 
 
-    <!-- TextView: input password -->
+            <EditText
+                android:id="@+id/txtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="#81FFFFFF"
+                android:drawableLeft="@drawable/ic_baseline_perm_identity_24"
+                android:drawablePadding="10dp"
+                android:hint="Full name"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:layout_below="@+id/banner2"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:id="@+id/passTil"
-        android:layout_below="@+id/birthTil">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtPassword"
-            android:inputType="textPassword"
-            android:hint="Password"
-            android:background="#81FFFFFF"
-            android:layout_margin="15dp"
-            android:padding="10dp"
-            android:drawableLeft="@drawable/ic_baseline_perm_identity_24"
-            android:drawablePadding="10dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:id="@+id/confirmPasswordTil"
-        android:layout_below="@+id/passTil">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtConfirmPassword"
-            android:inputType="textPassword"
-            android:hint="Confirm Password"
-            android:background="#81FFFFFF"
-            android:layout_margin="15dp"
-            android:padding="10dp"
-            android:drawableLeft="@drawable/ic_baseline_perm_identity_24"
-            android:drawablePadding="10dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:layout_below="@+id/confirmPasswordTil"
-        android:layout_marginTop="20dp"
-        android:background="#81FFFFFF"
-        android:id="@+id/btnRegister"
-        android:layout_margin="15dp"
-        android:padding="10dp"
-        android:drawablePadding="10dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtEmail"
+                android:inputType="textEmailAddress"
+                android:hint="Email"
+                android:background="#81FFFFFF"
+                android:layout_margin="15dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_baseline_email_24"
+                android:drawablePadding="10dp"
+                android:layout_below="@+id/txtName"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextDate"
+                android:inputType="date"
+                android:hint="D O B"
+                android:background="#81FFFFFF"
+                android:layout_margin="15dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_baseline_perm_identity_24"
+                android:drawablePadding="10dp"
+                android:layout_below="@+id/txtEmail"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtPassword"
+                android:inputType="textPassword"
+                android:hint="Password"
+                android:background="#81FFFFFF"
+                android:layout_margin="15dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_baseline_perm_identity_24"
+                android:drawablePadding="10dp"
+                android:layout_below="@+id/editTextDate"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtConfirmPassword"
+                android:inputType="textPassword"
+                android:hint="Confirm Password"
+                android:background="#81FFFFFF"
+                android:layout_margin="15dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_baseline_perm_identity_24"
+                android:drawablePadding="10dp"
+                android:layout_below="@+id/txtPassword"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Register"
+                android:layout_below="@+id/txtConfirmPassword"
+                android:layout_marginTop="20dp"
+                android:background="#81FFFFFF"
+                android:id="@+id/btnRegister"
+                android:layout_margin="15dp"
+                android:padding="10dp"
+                android:drawablePadding="10dp"/>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 
 
 </RelativeLayout>
