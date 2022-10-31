@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -142,10 +143,15 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
+
+                                        progressDialog.dismiss();
+                                        FirebaseUser user = mAuth.getCurrentUser();
+
                                         Toast.makeText(SignupActivity.this, "User has been registered successfully", Toast.LENGTH_LONG).show();
                                         //redirect to login layout
 
-
+                                        startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                                        finish();
 
                                     } else {
                                         Toast.makeText(SignupActivity.this, "Failed to register! Try again!", Toast.LENGTH_LONG).show();

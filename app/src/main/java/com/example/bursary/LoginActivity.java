@@ -42,6 +42,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editTextEmail = (EditText) findViewById(R.id.editTextTextEmailAddress);
         editTextPassword = (EditText) findViewById(R.id.editTextNumberPassword);
 
+        mAuth = FirebaseAuth.getInstance();
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait...");
 
@@ -102,6 +104,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 else{
                     Toast.makeText(LoginActivity.this, "Filed to log in! Please check your credentials", Toast.LENGTH_LONG).show();
                 }
+                progressDialog.dismiss();
             }
         });
 
