@@ -122,6 +122,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         //progressBar
 
         progressDialog.show();
+
+        //register the user in firebase
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
