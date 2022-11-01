@@ -150,6 +150,10 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                                         Toast.makeText(SignupActivity.this, "User has been registered successfully", Toast.LENGTH_LONG).show();
                                         //redirect to login layout
 
+//                                        Intent goToHome = new Intent(SignupActivity.this, MainActivity.class);
+//                                        startActivity(goToHome);
+//                                        finish();
+
                                         startActivity(new Intent(SignupActivity.this, MainActivity.class));
                                         finish();
 
