@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -171,15 +172,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (task.isSuccessful()){
                     //redirect to main activity
 
+                    progressDialog.dismiss();
+
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    finish();
 
                 }
                 else{
+                    progressDialog.dismiss();
                     Toast.makeText(LoginActivity.this, "Filed to log in! Please check your credentials", Toast.LENGTH_LONG).show();
                 }
-                progressDialog.dismiss();
             }
-        });
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                progressDialog.dismiss();
+                Toast.makeText(LoginActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT);
+            }
+        });;
 
     }
 }
