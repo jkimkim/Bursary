@@ -19,12 +19,7 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.bursary.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-    <fragment
-        android:id="@+id/profileFragment"
         android:name="com.example.bursary.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
