@@ -42,6 +42,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/firstApplication"
                 android:orientation="vertical"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
@@ -55,7 +56,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="first card"
+                    android:text="1st Application"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     android:textColor="@color/black"
@@ -81,19 +82,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/myProfile"
                 android:orientation="vertical"
                 android:gravity="center"
                 >
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_home_24"
+                    android:src="@drawable/ic_baseline_account_circle_24"
                     android:layout_margin="12dp"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="first card"
+                    android:text="Profile"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     android:textColor="@color/black"
@@ -119,19 +121,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/adminSection"
                 android:orientation="vertical"
                 android:gravity="center"
                 >
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_home_24"
+                    android:src="@drawable/ic_baseline_admin_panel_settings_24"
                     android:layout_margin="12dp"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="first card"
+                    android:text="Admin"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     android:textColor="@color/black"
@@ -157,6 +160,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/subsequentApplication"
                 android:orientation="vertical"
                 android:gravity="center"
                 >
@@ -169,7 +173,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="first card"
+                    android:text="sub application"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     android:textColor="@color/black"
