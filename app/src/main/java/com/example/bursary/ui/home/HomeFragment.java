@@ -17,7 +17,7 @@ import com.example.bursary.NewApplication;
 import com.example.bursary.R;
 import com.example.bursary.databinding.FragmentHomeBinding;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private FragmentHomeBinding binding;
     ProgressDialog progressDialog;
@@ -35,13 +35,7 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
 
         firstApplication = view.findViewById(R.id.firstApplication);
-        firstApplication.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NewApplication.showDialog(getParentFragmentManager());
-            }
-        });
-
+        firstApplication.setOnClickListener(this);
 
         submittedApplication = view.findViewById(R.id.submittedApplication);
         myProfile = view.findViewById(R.id.myProfile);
@@ -60,5 +54,16 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.firstApplication:
+                progressDialog.show();
+                NewApplication.showDialog(getChildFragmentManager());
+                progressDialog.dismiss();
+                break;
+        }
     }
 }
