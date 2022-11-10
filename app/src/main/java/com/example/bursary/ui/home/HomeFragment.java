@@ -1,5 +1,7 @@
 package com.example.bursary.ui.home;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,7 @@ import com.example.bursary.databinding.FragmentHomeBinding;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
+    ProgressDialog progressDialog;
 
     private LinearLayout firstApplication, submittedApplication, myProfile, adminSection;
 
@@ -43,6 +46,9 @@ public class HomeFragment extends Fragment {
         submittedApplication = view.findViewById(R.id.submittedApplication);
         myProfile = view.findViewById(R.id.myProfile);
         adminSection = view.findViewById(R.id.adminSection);
+
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Submitting...");
 
 
 
