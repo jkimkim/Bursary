@@ -128,7 +128,7 @@ public class GalleryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(idUri==null || certUri==null || feeUri==null || reportUri==null || genderButton.getText().toString().equals(getResources().getString(R.string.select_gender))){
-                    Toast.makeText(getActivity(),"One or more images not Set Yet",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"Please Upload All Images!",Toast.LENGTH_LONG).show();
                     return;
                 }
                 Dialog progressDialog=new Dialog(getActivity());
@@ -160,7 +160,7 @@ public class GalleryFragment extends Fragment {
                                                             @Override
                                                             public void onSuccess(Void aVoid) {
                                                                 progressDialog.dismiss();
-                                                                Toast.makeText(getActivity(),"Sent Successfully",Toast.LENGTH_LONG).show();
+                                                                Toast.makeText(getActivity(),"Submitted Successfully!",Toast.LENGTH_LONG).show();
                                                             }
                                                         });
                                             }

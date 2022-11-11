@@ -1,13 +1,17 @@
 package com.example.bursary;
 
+import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -70,10 +74,31 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
+    //@Override
+    //public void onBackPressed() {
+      //  new AlertDialog.Builder(this)
+        //        .setTitle("Exit?")
+          //      .setMessage("Are you sure you want to exit?")
+            //    .setNegativeButton(android.R.string.no, null)
+              //  .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+//
+  //                  public void onClick(DialogInterface arg0, int arg1) {
+    ///                    MainActivity.super.onBackPressed();
+       //             }
+         //       }).create().show();
+
+    @Override
+    public void onBackPressed(){
+        FragmentManager fm = getFragmentManager();
+        if (fm.getBackStackEntryCount() > 0) {
+            Log.i("MainActivity", "popping backstack");
+            fm.popBackStack();
+        } else {
+            Log.i("MainActivity", "nothing on backstack, calling super");
+            super.onBackPressed();
+        }
     }
+
 
     public void onStart() {
         super.onStart();
