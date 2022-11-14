@@ -3,6 +3,7 @@ package com.example.bursary.ui;
 import android.app.Dialog;
 import android.os.Bundle;
 
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
@@ -13,11 +14,10 @@ public class DatePicker extends DialogFragment{
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        Calendar mCalendar = Calendar.getInstance();
-        int year = mCalendar.get(Calendar.YEAR);
-        int month = mCalendar.get(Calendar.MONTH);
-        int dayOfMonth = mCalendar.get(Calendar.DAY_OF_MONTH);
-        return new DatePicker(getActivity(), (DatePicker.OnDateSetListener)
-                getActivity(), year, month, dayOfMonth);
+        Calendar calendar=Calendar.getInstance();
+        int year=calendar.get(Calendar.YEAR);
+        int month=calendar.get(Calendar.MONTH);
+        int day=calendar.get(Calendar.DAY_OF_MONTH);
+        return new android.app.DatePickerDialog(getActivity(),(android.app.DatePickerDialog.OnDateSetListener) getActivity(),year,month,day);
     }
 }
