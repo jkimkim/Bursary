@@ -16,8 +16,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.bursary.NewApplication;
 import com.example.bursary.R;
+import com.example.bursary.Upload;
 import com.example.bursary.databinding.FragmentHomeBinding;
+import com.example.bursary.ui.CompleteListener;
+import com.example.bursary.ui.Fetcher;
+import com.example.bursary.ui.MyApplications;
 import com.example.bursary.ui.gallery.GalleryFragment;
+
+import java.util.List;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
@@ -40,6 +46,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         firstApplication.setOnClickListener(this);
 
         submittedApplication = view.findViewById(R.id.submittedApplication);
+        submittedApplication.setOnClickListener(this);
+
         myProfile = view.findViewById(R.id.myProfile);
         adminSection = view.findViewById(R.id.adminSection);
 
@@ -60,6 +68,20 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 progressDialog.show();
                 fragment = new GalleryFragment();
                 replaceFragment(fragment);
+                progressDialog.dismiss();
+                break;
+            case R.id.submittedApplication:
+                progressDialog.show();
+
+                new Fetcher().fetchApplications(new CompleteListener() {
+                    @Override
+                    public void onUploadFetched(List<Upload> uploads) {
+                        progressDialog.dismiss();
+                        MyApplications dialog=new MyApplications();
+                        dialog.show(getChildFragmentManager(),"My Applications");
+                    }
+                });
+
                 progressDialog.dismiss();
                 break;
         }
