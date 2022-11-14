@@ -10,4 +10,7 @@
     <color name="red">#FFD32F2F</color>
     <color name="amber">#FFFFC107</color>
     <color name="green">#FF388E3C</color>
+    <color name="blue">#FF1976D2</color>
+    <color name="blue_grey">#FF607D8B</color>
+    <color name="lamu_amber">#FFFDCA00</color>
 </resources>
