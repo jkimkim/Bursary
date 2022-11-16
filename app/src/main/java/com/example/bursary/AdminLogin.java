@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class AdminLogin extends AppCompatActivity implements View.OnClickListener {
 
@@ -92,6 +93,10 @@ public class AdminLogin extends AppCompatActivity implements View.OnClickListene
             if (task.isSuccessful()) {
                 progressDialog.dismiss();
                 //redirect to user profile
+
+                FirebaseUser admin = FirebaseAuth.getInstance().getCurrentUser();
+                startActivity(new Intent(AdminLogin.this, AdminActivity.class));
+
             } else {
                 progressDialog.dismiss();
                 editTextEmail.setError("Failed to login! Please check your credentials");
