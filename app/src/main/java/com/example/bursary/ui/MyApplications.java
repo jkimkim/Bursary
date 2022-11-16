@@ -34,6 +34,13 @@ public class MyApplications extends DialogFragment {
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.Theme_Bursary);
+
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
         Dialog dialog=getDialog();
@@ -45,12 +52,6 @@ public class MyApplications extends DialogFragment {
         }
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NORMAL, R.style.Theme_Bursary);
-
-    }
 
     @Nullable
     @Override

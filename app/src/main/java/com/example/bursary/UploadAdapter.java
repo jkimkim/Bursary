@@ -51,5 +51,4 @@ public static class Holder extends RecyclerView.ViewHolder {
         statusView = itemView.findViewById(R.id.applicationStatus);
     }
 }
-
 }
