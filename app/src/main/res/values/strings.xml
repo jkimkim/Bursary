@@ -36,6 +36,7 @@
     <string name="application_status">Application Status</string>
     <string name="user_applications">User Applications</string>
     <string name="show_applications_by_gender">Show applications by gender</string>
+    <string name="title_activity_admin">Bursary Admin</string>
 
     <string name="menu_subsequent_application">Subsequent Application</string>
     <!-- TODO: Remove or change this placeholder text -->
