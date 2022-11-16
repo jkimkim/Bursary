@@ -38,6 +38,8 @@
     <string name="show_applications_by_gender">Show applications by gender</string>
     <string name="title_activity_admin">Bursary Admin</string>
 
+    <string name="admin_options">Admin Options</string>
+
     <string name="menu_subsequent_application">Subsequent Application</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
