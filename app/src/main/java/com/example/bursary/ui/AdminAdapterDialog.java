@@ -83,10 +83,10 @@ public class AdminAdapterDialog extends DialogFragment {
                         .setTitle("Pick an action")
                         .setItems(new String[]{"Accept", "Reject"}, (dialog, which) -> {
                             if (which == 0) {
-                                reject(upload);
+                                accept(upload);
                                 dialog.dismiss();
                             } else {
-                                accept(upload);
+                                reject(upload);
                                 dialog.dismiss();
                             }
                         }).create().show();
@@ -176,5 +176,16 @@ public class AdminAdapterDialog extends DialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (rejectListener != null) {
+            FirebaseDatabase.getInstance().getReference("requests").removeEventListener(rejectListener);
+        }
+        if (acceptListener != null) {
+            FirebaseDatabase.getInstance().getReference("requests").removeEventListener(acceptListener);
+        }
     }
 }
