@@ -32,15 +32,18 @@
         android:layout_margin="10dp"/>
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/applicationStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#AF0202"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        android:textStyle="bold"
         android:layout_below="@+id/applicationDate"
-        android:text="@string/pending"
-        android:padding="5dp"
-        android:id="@+id/applicationStatus"
         android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"/>
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="5dp"
+        android:text="@string/pending"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="#AF0202"
+        android:textStyle="bold" />
 </RelativeLayout>

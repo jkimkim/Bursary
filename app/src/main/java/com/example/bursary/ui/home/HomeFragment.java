@@ -18,6 +18,7 @@ import com.example.bursary.NewApplication;
 import com.example.bursary.R;
 import com.example.bursary.Upload;
 import com.example.bursary.databinding.FragmentHomeBinding;
+//import com.example.bursary.ui.AdminAdapterDialog;
 import com.example.bursary.ui.CompleteListener;
 import com.example.bursary.ui.Fetcher;
 import com.example.bursary.ui.MyApplications;
@@ -49,7 +50,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         submittedApplication.setOnClickListener(this);
 
         myProfile = view.findViewById(R.id.myProfile);
+
         adminSection = view.findViewById(R.id.adminSection);
+        adminSection.setOnClickListener(this);
 
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Submitting...");
@@ -62,28 +65,40 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        Dialog pDialog = new Dialog(HomeFragment.this.getContext());
+        pDialog.setContentView(R.layout.progressdialog);
+        pDialog.setCancelable(false);
+        pDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        pDialog.show();
+
         Fragment fragment = null;
         switch (v.getId()) {
             case R.id.firstApplication:
-                progressDialog.show();
                 fragment = new GalleryFragment();
                 replaceFragment(fragment);
-                progressDialog.dismiss();
+                pDialog.dismiss();
                 break;
             case R.id.submittedApplication:
-                progressDialog.show();
+                pDialog.show();
 
                 new Fetcher().fetchApplications(new CompleteListener() {
                     @Override
                     public void onUploadFetched(List<Upload> uploads) {
-                        progressDialog.dismiss();
-                        MyApplications dialog=new MyApplications();
-                        dialog.show(getChildFragmentManager(),"My Applications");
+                        pDialog.dismiss();
+                        MyApplications.showDialog(getChildFragmentManager(), uploads);
                     }
                 });
 
-                progressDialog.dismiss();
                 break;
+            //case R.id.adminSection:
+              //  pDialog.show();
+                //new Fetcher().fetchApplications(new CompleteListener() {
+                  //  @Override
+                    //public void onUploadFetched(List<Upload> uploads) {
+                      //  pDialog.dismiss();
+                        //AdminAdapterDialog.showDialog(getChildFragmentManager(), uploads);
+                   // }
+                //});
         }
     }
 
