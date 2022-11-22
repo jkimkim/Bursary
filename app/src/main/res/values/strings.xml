@@ -33,6 +33,9 @@
     <string name="pending">Pending</string>
     <string name="approved">Approved</string>
     <string name="rejected">Rejected</string>
+    <string name="application_status">Application Status</string>
+    <string name="user_applications">User Applications</string>
+    <string name="show_applications_by_gender">Show applications by gender</string>
     <string name="title_activity_user">Bursary User</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
