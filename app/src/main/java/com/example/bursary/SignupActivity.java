@@ -35,7 +35,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
 
     private ImageView banner2;
-    private EditText txtName, txtEmail, txtPassword, txtConfirmPassword, editTextDate;
+    private EditText txtName, txtEmail, txtPassword, txtConfirmPassword, editTextDate,
+            txtPhone,txtAdmNo,txtCourse,institutionPhone,txtInstitution,txtBankName, txtBankAccNo, txtBankBranch,txtDistrict,txtDivision,txtLocation,txtWard,txtConstituency,txtSubLocation,txtVillage;
     private Button btnRegister;
     ProgressDialog progressDialog;
 
