@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 public class User implements Serializable {
     public String name, email, date, admNo, course,
-            institution, phone, institutionPhoneNo, bankName, bankAccountNo, bankBranch, district, division, location, ward, constituency, subLocation, village;
+            institution, phone, institutionPhoneNo, bankName, bankAccountNo, bankBranch, district, division, location, ward, constituency, subLocation, village,id;
 
-    public User(String name, String email, String date, String phone, String admNo, String course, String institution, String institutionPhoneNo, String bankName, String bankAccNo, String bankBranch, String district, String division, String location, String ward, String constituency, String subLocation, String village){
+    public User(){
 
     }
-    public User(String name, String email, String date){
+    public User(String name, String email, String date, String admNo, String course, String institution, String phone, String institutionPhoneNo, String bankName, String bankAccountNo, String bankBranch, String district, String division, String location, String ward, String constituency, String subLocation, String village, String id) {
         this.date = date;
         this.name = name;
         this.email = email;
@@ -28,6 +28,7 @@ public class User implements Serializable {
         this.constituency = constituency;
         this.subLocation = subLocation;
         this.village = village;
+        this.id = id;
     }
 
     public String getName() {
@@ -100,6 +101,10 @@ public class User implements Serializable {
 
     public String getVillage() {
         return village;
+    }
+
+    public String getId() {
+        return id;
     }
 
 }
