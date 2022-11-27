@@ -72,6 +72,7 @@
     <string name="county">County</string>
     <string name="sub_location">Sub Location</string>
     <string name="student_details">Student Details</string>
+    <string name="phone">Phone</string>
 
     <string name="admin_options">Admin Options</string>
 

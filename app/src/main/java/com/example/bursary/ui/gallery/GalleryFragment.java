@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.bursary.FetchUserData;
 import com.example.bursary.NewApplication;
 import com.example.bursary.R;
 import com.example.bursary.Upload;
@@ -31,8 +32,13 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.opensooq.supernova.gligar.GligarPicker;
 
 import java.io.File;
@@ -47,6 +53,14 @@ public class GalleryFragment extends Fragment {
     private ImageView idImage,reportView,certView,feeView;
     private Uri idUri,certUri,feeUri,reportUri;
     List<String> downloadUrls=new ArrayList<>();
+    List<FetchUserData> userDataList=new ArrayList<>();
+
+    private TextView name,email,phone,dob,admNo,course,institution,institution_number,bank_name,bank_account_number,bank_branch,district,division,location,ward,constituency,sub_location,village;
+
+    FirebaseAuth mAuth;
+    FirebaseUser user;
+    FirebaseDatabase database;
+    DatabaseReference reference;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -69,6 +83,64 @@ public class GalleryFragment extends Fragment {
         certView=view.findViewById(R.id.bCertImage);
         feeView=view.findViewById(R.id.feeImage);
         applyButton=view.findViewById(R.id.apply);
+
+        mAuth=FirebaseAuth.getInstance();
+        user=mAuth.getCurrentUser();
+        database=FirebaseDatabase.getInstance();
+        reference=database.getReference("Users");
+
+        name=view.findViewById(R.id.name);
+        email=view.findViewById(R.id.email);
+        phone=view.findViewById(R.id.phone);
+        dob=view.findViewById(R.id.dob);
+        admNo=view.findViewById(R.id.admNo);
+        course=view.findViewById(R.id.course);
+        institution=view.findViewById(R.id.institution);
+        institution_number=view.findViewById(R.id.institution_number);
+        bank_name=view.findViewById(R.id.bank_name);
+        bank_account_number=view.findViewById(R.id.bank_account_number);
+        bank_branch=view.findViewById(R.id.bank_branch);
+        district=view.findViewById(R.id.district);
+        division=view.findViewById(R.id.division);
+        location=view.findViewById(R.id.location);
+        ward=view.findViewById(R.id.ward);
+        constituency=view.findViewById(R.id.constituency);
+        sub_location=view.findViewById(R.id.sub_location);
+        village=view.findViewById(R.id.village);
+
+        Query query=reference.orderByChild("email").equalTo(user.getEmail());
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
+                    FetchUserData userData=dataSnapshot.getValue(FetchUserData.class);
+                    userDataList.add(userData);
+                }
+                name.setText(userDataList.get(0).getName());
+                email.setText(userDataList.get(0).getEmail());
+                phone.setText(userDataList.get(0).getPhone());
+                dob.setText(userDataList.get(0).getDate());
+                admNo.setText(userDataList.get(0).getAdmNo());
+                course.setText(userDataList.get(0).getCourse());
+                institution.setText(userDataList.get(0).getInstitution());
+                institution_number.setText(userDataList.get(0).getInstitutionPhoneNo());
+                bank_name.setText(userDataList.get(0).getBankName());
+                bank_account_number.setText(userDataList.get(0).getBankAccountNo());
+                bank_branch.setText(userDataList.get(0).getBankBranch());
+                district.setText(userDataList.get(0).getDistrict());
+                division.setText(userDataList.get(0).getDivision());
+                location.setText(userDataList.get(0).getLocation());
+                ward.setText(userDataList.get(0).getWard());
+                constituency.setText(userDataList.get(0).getConstituency());
+                sub_location.setText(userDataList.get(0).getSubLocation());
+                village.setText(userDataList.get(0).getVillage());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         return view;
 
@@ -155,7 +227,9 @@ public class GalleryFragment extends Fragment {
                                                 DatabaseReference reference= FirebaseDatabase.getInstance().getReference("requests")
                                                         .push();
                                                 Upload upload=new Upload(downloadUrls, FirebaseAuth.getInstance().getCurrentUser().getUid(),String.valueOf(System.currentTimeMillis()),genderButton.getText().toString(),"Pending", Calendar.getInstance().getTime().toString());
-                                                reference.setValue(upload)
+                                                FetchUserData fetchUserData=new FetchUserData(name.getText().toString(),email.getText().toString(),phone.getText().toString(),admNo.getText().toString(),course.getText().toString(),institution.getText().toString(),institution_number.getText().toString(),bank_name.getText().toString(),bank_account_number.getText().toString(),bank_branch.getText().toString(),district.getText().toString(),division.getText().toString(),location.getText().toString(),ward.getText().toString(),constituency.getText().toString(),sub_location.getText().toString(),village.getText().toString(),dob.getText().toString());
+                                                reference.setValue(upload);
+                                                        reference.child("userData").setValue(fetchUserData)
                                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                             @Override
                                                             public void onSuccess(Void aVoid) {
