@@ -41,6 +41,8 @@ public class NewApplication extends DialogFragment {
     private Uri idUri,certUri,feeUri,reportUri;
     List<String> downloadUrls=new ArrayList<>();
 
+    DatabaseReference userRef;
+
 
     public static void showDialog(FragmentManager manager){
         NewApplication dialog=new NewApplication();
@@ -76,6 +78,8 @@ public class NewApplication extends DialogFragment {
         certView=view.findViewById(R.id.bCertImage);
         feeView=view.findViewById(R.id.feeImage);
         applyButton=view.findViewById(R.id.apply);
+
+        userRef=FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
         return view;
 

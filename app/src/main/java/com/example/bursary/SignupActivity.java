@@ -35,7 +35,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
 
     private ImageView banner2;
-    private EditText txtName, txtEmail, txtPassword, txtConfirmPassword, editTextDate;
+    private EditText txtName, txtEmail, txtPassword, txtConfirmPassword, editTextDate,
+            txtPhone,txtAdmNo,txtCourse,institutionPhone,txtInstitution,txtBankName, txtBankAccNo, txtBankBranch,txtDistrict,txtDivision,txtLocation,txtWard,txtConstituency,txtSubLocation,txtVillage;
     private Button btnRegister;
     ProgressDialog progressDialog;
 
@@ -53,6 +54,22 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         txtEmail = findViewById(R.id.txtEmail);
         txtPassword = findViewById(R.id.txtPassword);
         txtConfirmPassword = findViewById(R.id.txtConfirmPassword);
+        txtPhone = findViewById(R.id.txtPhone);
+        txtAdmNo = findViewById(R.id.txtAdmNo);
+        txtCourse = findViewById(R.id.txtCourse);
+        institutionPhone = findViewById(R.id.institutionPhone);
+        txtInstitution = findViewById(R.id.txtInstitution);
+        txtBankName = findViewById(R.id.txtBankName);
+        txtBankAccNo = findViewById(R.id.txtBankAccNo);
+        txtBankBranch = findViewById(R.id.txtBankBranch);
+        txtDistrict = findViewById(R.id.txtDistrict);
+        txtDivision = findViewById(R.id.txtDivision);
+        txtLocation = findViewById(R.id.txtLocation);
+        txtWard = findViewById(R.id.txtWard);
+        txtConstituency = findViewById(R.id.txtConstituency);
+        txtSubLocation = findViewById(R.id.txtSubLocation);
+        txtVillage = findViewById(R.id.txtVillage);
+
         editTextDate = findViewById(R.id.editTextDate);
         editTextDate.setOnClickListener(this);
 
@@ -87,9 +104,25 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     private void registerUser() {
         String name = txtName.getText().toString().trim();
         String email = txtEmail.getText().toString().trim();
+        String phone = txtPhone.getText().toString().trim();
+        String admNo = txtAdmNo.getText().toString().trim();
+        String course = txtCourse.getText().toString().trim();
+        String institution = txtInstitution.getText().toString().trim();
+        String institutionPhoneNo = institutionPhone.getText().toString().trim();
+        String bankName = txtBankName.getText().toString().trim();
+        String bankAccNo = txtBankAccNo.getText().toString().trim();
+        String bankBranch = txtBankBranch.getText().toString().trim();
+        String district = txtDistrict.getText().toString().trim();
+        String division = txtDivision.getText().toString().trim();
+        String location = txtLocation.getText().toString().trim();
+        String ward = txtWard.getText().toString().trim();
+        String constituency = txtConstituency.getText().toString().trim();
+        String subLocation = txtSubLocation.getText().toString().trim();
+        String village = txtVillage.getText().toString().trim();
         String password = txtPassword.getText().toString().trim();
         String confirmPassword = txtConfirmPassword.getText().toString().trim();
         String date = editTextDate.getText().toString().trim();
+        String id = mAuth.getCurrentUser().getUid();
 
         if (name.isEmpty()) {
             txtName.setError("Name is required");
@@ -138,6 +171,97 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             txtConfirmPassword.requestFocus();
             return;
         }
+
+if (phone.isEmpty()) {
+            txtPhone.setError("Phone number is required");
+            txtPhone.requestFocus();
+            return;
+        }
+
+        if (admNo.isEmpty()) {
+            txtAdmNo.setError("Admission number is required");
+            txtAdmNo.requestFocus();
+            return;
+        }
+
+        if (course.isEmpty()) {
+            txtCourse.setError("Course is required");
+            txtCourse.requestFocus();
+            return;
+        }
+
+        if (institution.isEmpty()) {
+            txtInstitution.setError("Institution is required");
+            txtInstitution.requestFocus();
+            return;
+        }
+
+        if (institutionPhoneNo.isEmpty()) {
+            institutionPhone.setError("Institution phone number is required");
+            institutionPhone.requestFocus();
+            return;
+        }
+
+        if (bankName.isEmpty()) {
+            txtBankName.setError("Bank name is required");
+            txtBankName.requestFocus();
+            return;
+        }
+
+        if (bankAccNo.isEmpty()) {
+            txtBankAccNo.setError("Bank account number is required");
+            txtBankAccNo.requestFocus();
+            return;
+        }
+
+        if (bankBranch.isEmpty()) {
+            txtBankBranch.setError("Bank branch is required");
+            txtBankBranch.requestFocus();
+            return;
+        }
+
+        if (district.isEmpty()) {
+            txtDistrict.setError("District is required");
+            txtDistrict.requestFocus();
+            return;
+        }
+
+        if (division.isEmpty()) {
+            txtDivision.setError("Division is required");
+            txtDivision.requestFocus();
+            return;
+        }
+
+        if (location.isEmpty()) {
+            txtLocation.setError("Location is required");
+            txtLocation.requestFocus();
+            return;
+        }
+
+        if (ward.isEmpty()) {
+            txtWard.setError("Ward is required");
+            txtWard.requestFocus();
+            return;
+        }
+
+        if (constituency.isEmpty()) {
+            txtConstituency.setError("Constituency is required");
+            txtConstituency.requestFocus();
+            return;
+        }
+
+        if (subLocation.isEmpty()) {
+            txtSubLocation.setError("Sub location is required");
+            txtSubLocation.requestFocus();
+            return;
+        }
+
+        if (village.isEmpty()) {
+            txtVillage.setError("Village is required");
+            txtVillage.requestFocus();
+            return;
+        }
+
         //progressBar
 
         progressDialog.show();
@@ -148,7 +272,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            User user = new User(name, email, date);
+                            User user = new User(name, email, date, phone,admNo,course,institution,institutionPhoneNo,bankName,bankAccNo,bankBranch,district,division,location,ward,constituency,subLocation,village,id);
 
                                     mDatabase.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
