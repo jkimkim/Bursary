@@ -4,24 +4,8 @@ import java.io.Serializable;
 
 public class FetchUserData implements Serializable {
 
-    String name;
-    String email;
-    String phone;
-    String date;
-    String admNo;
-    String course;
-    String institution;
-    String institutionPhoneNo;
-    String bankName;
-    String bankAccountNo;
-    String bankBranch;
-    String district;
-    String division;
-    String location;
-    String ward;
-    String constituency;
-    String subLocation;
-    String village;
+    private String name, phone, email, date, admNo, course, institutionPhoneNo,
+            institution, bankName, bankAccountNo, bankBranch, district, division, location, ward, constituency, subLocation, village;
 
     public FetchUserData(String name, String email, String date, String admNo, String course, String institution, String phone, String institutionPhoneNo, String bankName, String bankAccountNo, String bankBranch, String district, String division, String location, String ward, String constituency, String subLocation, String village) {
         this.date = date;

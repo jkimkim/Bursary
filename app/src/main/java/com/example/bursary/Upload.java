@@ -10,40 +10,24 @@ public class Upload implements Serializable {
     String gender;
     String status;
     String appDate;
-    String name;
-    String email;
-    String phone;
-    String date;
-    String admNo;
-    String course;
-    String institution;
-    String institutionPhoneNo;
-    String bankName;
-    String bankAccountNo;
-    String bankBranch;
-    String district;
-    String division;
-    String location;
-    String ward;
-    String constituency;
-    String subLocation;
-    String village;
+    private String name, phone, email, date, admNo, course, institutionPhoneNo,
+            institution, bankName, bankAccountNo, bankBranch, district, division, location, ward, constituency, subLocation, village;
 
-    public Upload(List<String> downloadUrls, String userId, String uploadId, String gender,String status,String appDate,String name, String email, String date, String admNo, String course, String institution, String phone, String institutionPhoneNo, String bankName, String bankAccountNo, String bankBranch, String district, String division, String location, String ward, String constituency, String subLocation, String village) {
+    public Upload(List<String> downloadUrls, String userId, String uploadId, String gender,String status,String appDate,String name, String phone, String email, String date, String admNo, String course, String institutionPhoneNo, String institution, String bankName, String bankAccountNo, String bankBranch, String district, String division, String location, String ward, String constituency, String subLocation, String village) {
         this.downloadUrls = downloadUrls;
         this.userId = userId;
         this.uploadId=uploadId;
         this.gender=gender;
         this.status=status;
         this.appDate=appDate;
-        this.date = date;
         this.name = name;
-        this.email = email;
         this.phone = phone;
+        this.email = email;
+        this.date = date;
         this.admNo = admNo;
         this.course = course;
-        this.institution = institution;
         this.institutionPhoneNo = institutionPhoneNo;
+        this.institution = institution;
         this.bankName = bankName;
         this.bankAccountNo = bankAccountNo;
         this.bankBranch = bankBranch;

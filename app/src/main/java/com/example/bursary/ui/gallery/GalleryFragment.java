@@ -54,7 +54,7 @@ public class GalleryFragment extends Fragment {
     List<String> downloadUrls=new ArrayList<>();
     List<Upload> uploadList=new ArrayList<>();
 
-    private TextView name,email,phone,dob,admNo,course,institution,institution_number,bank_name,bank_account_number,bank_branch,district,division,location,ward,constituency,sub_location,village;
+    private TextView name,phone,email,dob,admNo,course,institution_number,institution,bank_name,bank_account_number,bank_branch,district,division,location,ward,constituency,sub_location,village;
 
     FirebaseAuth mAuth;
     FirebaseUser user;
@@ -225,7 +225,7 @@ public class GalleryFragment extends Fragment {
                                                 downloadUrls.add(downLoadUrl3);
                                                 DatabaseReference reference= FirebaseDatabase.getInstance().getReference("requests")
                                                         .push();
-                                                Upload upload=new Upload(downloadUrls, FirebaseAuth.getInstance().getCurrentUser().getUid(),String.valueOf(System.currentTimeMillis()),genderButton.getText().toString(),"Pending", Calendar.getInstance().getTime().toString(),name.getText().toString(),email.getText().toString(),phone.getText().toString(),admNo.getText().toString(),course.getText().toString(),institution.getText().toString(),institution_number.getText().toString(),bank_name.getText().toString(),bank_account_number.getText().toString(),bank_branch.getText().toString(),district.getText().toString(),division.getText().toString(),location.getText().toString(),ward.getText().toString(),constituency.getText().toString(),sub_location.getText().toString(),village.getText().toString(),dob.getText().toString());
+                                                Upload upload=new Upload(downloadUrls, FirebaseAuth.getInstance().getCurrentUser().getUid(),String.valueOf(System.currentTimeMillis()),genderButton.getText().toString(),"Pending", Calendar.getInstance().getTime().toString(),name.getText().toString(),phone.getText().toString(),email.getText().toString(),dob.getText().toString(),admNo.getText().toString(),course.getText().toString(),institution_number.getText().toString(),institution.getText().toString(),bank_name.getText().toString(),bank_account_number.getText().toString(),bank_branch.getText().toString(),district.getText().toString(),division.getText().toString(),location.getText().toString(),ward.getText().toString(),constituency.getText().toString(),sub_location.getText().toString(),village.getText().toString());
                                                 reference.setValue(upload)
                                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                             @Override
