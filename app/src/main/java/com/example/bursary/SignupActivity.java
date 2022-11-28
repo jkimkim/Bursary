@@ -272,8 +272,7 @@ if (phone.isEmpty()) {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            User user = new User(name, email, date, phone,admNo,course,institution,institutionPhoneNo,bankName,bankAccNo,bankBranch,district,division,location,ward,constituency,subLocation,village,id);
-
+                            User user = new User(name,phone,email,date,admNo,course,institutionPhoneNo,institution,bankName,bankAccNo,bankBranch,district,division,location,ward,constituency,subLocation,village,id);
                                     mDatabase.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

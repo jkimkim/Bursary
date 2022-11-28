@@ -21,7 +21,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.bursary.FetchUserData;
-import com.example.bursary.NewApplication;
 import com.example.bursary.R;
 import com.example.bursary.Upload;
 import com.example.bursary.databinding.FragmentGalleryBinding;
@@ -53,7 +52,7 @@ public class GalleryFragment extends Fragment {
     private ImageView idImage,reportView,certView,feeView;
     private Uri idUri,certUri,feeUri,reportUri;
     List<String> downloadUrls=new ArrayList<>();
-    List<FetchUserData> userDataList=new ArrayList<>();
+    List<Upload> uploadList=new ArrayList<>();
 
     private TextView name,email,phone,dob,admNo,course,institution,institution_number,bank_name,bank_account_number,bank_branch,district,division,location,ward,constituency,sub_location,village;
 
@@ -113,27 +112,27 @@ public class GalleryFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()){
-                    FetchUserData userData=dataSnapshot.getValue(FetchUserData.class);
-                    userDataList.add(userData);
+                    Upload upload=dataSnapshot.getValue(Upload.class);
+                    uploadList.add(upload);
                 }
-                name.setText(userDataList.get(0).getName());
-                email.setText(userDataList.get(0).getEmail());
-                phone.setText(userDataList.get(0).getPhone());
-                dob.setText(userDataList.get(0).getDate());
-                admNo.setText(userDataList.get(0).getAdmNo());
-                course.setText(userDataList.get(0).getCourse());
-                institution.setText(userDataList.get(0).getInstitution());
-                institution_number.setText(userDataList.get(0).getInstitutionPhoneNo());
-                bank_name.setText(userDataList.get(0).getBankName());
-                bank_account_number.setText(userDataList.get(0).getBankAccountNo());
-                bank_branch.setText(userDataList.get(0).getBankBranch());
-                district.setText(userDataList.get(0).getDistrict());
-                division.setText(userDataList.get(0).getDivision());
-                location.setText(userDataList.get(0).getLocation());
-                ward.setText(userDataList.get(0).getWard());
-                constituency.setText(userDataList.get(0).getConstituency());
-                sub_location.setText(userDataList.get(0).getSubLocation());
-                village.setText(userDataList.get(0).getVillage());
+                name.setText(uploadList.get(0).getName());
+                email.setText(uploadList.get(0).getEmail());
+                phone.setText(uploadList.get(0).getPhone());
+                dob.setText(uploadList.get(0).getDate());
+                admNo.setText(uploadList.get(0).getAdmNo());
+                course.setText(uploadList.get(0).getCourse());
+                institution.setText(uploadList.get(0).getInstitution());
+                institution_number.setText(uploadList.get(0).getInstitutionPhoneNo());
+                bank_name.setText(uploadList.get(0).getBankName());
+                bank_account_number.setText(uploadList.get(0).getBankAccountNo());
+                bank_branch.setText(uploadList.get(0).getBankBranch());
+                district.setText(uploadList.get(0).getDistrict());
+                division.setText(uploadList.get(0).getDivision());
+                location.setText(uploadList.get(0).getLocation());
+                ward.setText(uploadList.get(0).getWard());
+                constituency.setText(uploadList.get(0).getConstituency());
+                sub_location.setText(uploadList.get(0).getSubLocation());
+                village.setText(uploadList.get(0).getVillage());
             }
 
             @Override
@@ -226,10 +225,8 @@ public class GalleryFragment extends Fragment {
                                                 downloadUrls.add(downLoadUrl3);
                                                 DatabaseReference reference= FirebaseDatabase.getInstance().getReference("requests")
                                                         .push();
-                                                Upload upload=new Upload(downloadUrls, FirebaseAuth.getInstance().getCurrentUser().getUid(),String.valueOf(System.currentTimeMillis()),genderButton.getText().toString(),"Pending", Calendar.getInstance().getTime().toString());
-                                                FetchUserData fetchUserData=new FetchUserData(name.getText().toString(),email.getText().toString(),phone.getText().toString(),admNo.getText().toString(),course.getText().toString(),institution.getText().toString(),institution_number.getText().toString(),bank_name.getText().toString(),bank_account_number.getText().toString(),bank_branch.getText().toString(),district.getText().toString(),division.getText().toString(),location.getText().toString(),ward.getText().toString(),constituency.getText().toString(),sub_location.getText().toString(),village.getText().toString(),dob.getText().toString());
-                                                reference.setValue(upload);
-                                                        reference.child("userData").setValue(fetchUserData)
+                                                Upload upload=new Upload(downloadUrls, FirebaseAuth.getInstance().getCurrentUser().getUid(),String.valueOf(System.currentTimeMillis()),genderButton.getText().toString(),"Pending", Calendar.getInstance().getTime().toString(),name.getText().toString(),email.getText().toString(),phone.getText().toString(),admNo.getText().toString(),course.getText().toString(),institution.getText().toString(),institution_number.getText().toString(),bank_name.getText().toString(),bank_account_number.getText().toString(),bank_branch.getText().toString(),district.getText().toString(),division.getText().toString(),location.getText().toString(),ward.getText().toString(),constituency.getText().toString(),sub_location.getText().toString(),village.getText().toString(),dob.getText().toString());
+                                                reference.setValue(upload)
                                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                             @Override
                                                             public void onSuccess(Void aVoid) {
