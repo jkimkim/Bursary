@@ -21,6 +21,8 @@ public class UploadAdapter extends RecyclerView.Adapter<UploadAdapter.Holder>{
         this.uploadList = uploadList;
     }
 
+    //this method is returning the view for each item in the list
+
 @Override
 public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
     View view = LayoutInflater.from(context).inflate(R.layout.application_card, parent, false);

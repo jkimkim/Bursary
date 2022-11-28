@@ -3,21 +3,19 @@ package com.example.bursary;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    public String name, email, date, admNo, course,
-            institution, phone, institutionPhoneNo, bankName, bankAccountNo, bankBranch, district, division, location, ward, constituency, subLocation, village,id;
+    private String name, phone, email, date, admNo, course, institutionPhoneNo,
+            institution, bankName, bankAccountNo, bankBranch, district, division, location, ward, constituency, subLocation, village,id;
 
-    public User(){
+    public User(String name, String phone, String email, String date, String admNo, String course, String institutionPhoneNo, String institution, String bankName, String bankAccountNo, String bankBranch, String district, String division, String location, String ward, String constituency, String subLocation, String village, String id) {
 
-    }
-    public User(String name, String email, String date, String admNo, String course, String institution, String phone, String institutionPhoneNo, String bankName, String bankAccountNo, String bankBranch, String district, String division, String location, String ward, String constituency, String subLocation, String village, String id) {
-        this.date = date;
         this.name = name;
-        this.email = email;
         this.phone = phone;
+        this.email = email;
+        this.date = date;
         this.admNo = admNo;
         this.course = course;
-        this.institution = institution;
         this.institutionPhoneNo = institutionPhoneNo;
+        this.institution = institution;
         this.bankName = bankName;
         this.bankAccountNo = bankAccountNo;
         this.bankBranch = bankBranch;
@@ -29,10 +27,19 @@ public class User implements Serializable {
         this.subLocation = subLocation;
         this.village = village;
         this.id = id;
+
     }
 
-    public String getName() {
+    public User(){
+
+    }
+
+public String getName() {
         return name;
+    }
+
+    public String getPhone() {
+        return phone;
     }
 
     public String getEmail() {
@@ -43,10 +50,6 @@ public class User implements Serializable {
         return date;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
     public String getAdmNo() {
         return admNo;
     }
@@ -55,12 +58,12 @@ public class User implements Serializable {
         return course;
     }
 
-    public String getInstitution() {
-        return institution;
-    }
-
     public String getInstitutionPhoneNo() {
         return institutionPhoneNo;
+    }
+
+    public String getInstitution() {
+        return institution;
     }
 
     public String getBankName() {
@@ -106,6 +109,5 @@ public class User implements Serializable {
     public String getId() {
         return id;
     }
-
 }
 
