@@ -195,6 +195,8 @@ public class GalleryFragment extends Fragment {
             }
         });
 
+        //uploading data to firebase
+
         applyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

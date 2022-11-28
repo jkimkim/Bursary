@@ -33,6 +33,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
     private DatabaseReference mDatabase;
 
+    //views
+
 
     private ImageView banner2;
     private EditText txtName, txtEmail, txtPassword, txtConfirmPassword, editTextDate,
@@ -48,6 +50,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         mAuth = FirebaseAuth.getInstance();
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Users");
+
+        //initializing views
 
         banner2 = findViewById(R.id.banner2);
         txtName = findViewById(R.id.txtName);
@@ -100,6 +104,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    //register user
 
     private void registerUser() {
         String name = txtName.getText().toString().trim();
@@ -123,6 +128,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         String confirmPassword = txtConfirmPassword.getText().toString().trim();
         String date = editTextDate.getText().toString().trim();
         String id = mAuth.getCurrentUser().getUid();
+
+        //Validation
 
         if (name.isEmpty()) {
             txtName.setError("Name is required");
@@ -308,6 +315,7 @@ if (phone.isEmpty()) {
 
     }
 
+    //Date picker
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         Calendar mCalendar = Calendar.getInstance();
