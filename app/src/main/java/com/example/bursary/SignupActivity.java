@@ -127,7 +127,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         String password = txtPassword.getText().toString().trim();
         String confirmPassword = txtConfirmPassword.getText().toString().trim();
         String date = editTextDate.getText().toString().trim();
-        String id = mAuth.getCurrentUser().getUid();
+        //String id = mAuth.getCurrentUser().getUid();
 
         //Validation
 
@@ -279,7 +279,7 @@ if (phone.isEmpty()) {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            User user = new User(name,phone,email,date,admNo,course,institutionPhoneNo,institution,bankName,bankAccNo,bankBranch,district,division,location,ward,constituency,subLocation,village,id);
+                            User user = new User(name,phone,email,date,admNo,course,institutionPhoneNo,institution,bankName,bankAccNo,bankBranch,district,division,location,ward,constituency,subLocation,village);
                                     mDatabase.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

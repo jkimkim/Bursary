@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class User implements Serializable {
     private String name, phone, email, date, admNo, course, institutionPhoneNo,
-            institution, bankName, bankAccountNo, bankBranch, district, division, location, ward, constituency, subLocation, village,id;
+            institution, bankName, bankAccountNo, bankBranch, district, division, location, ward, constituency, subLocation, village;
 
-    public User(String name, String phone, String email, String date, String admNo, String course, String institutionPhoneNo, String institution, String bankName, String bankAccountNo, String bankBranch, String district, String division, String location, String ward, String constituency, String subLocation, String village, String id) {
+    public User(String name, String phone, String email, String date, String admNo, String course, String institutionPhoneNo, String institution, String bankName, String bankAccountNo, String bankBranch, String district, String division, String location, String ward, String constituency, String subLocation, String village) {
 
         this.name = name;
         this.phone = phone;
@@ -26,7 +26,7 @@ public class User implements Serializable {
         this.constituency = constituency;
         this.subLocation = subLocation;
         this.village = village;
-        this.id = id;
+        //this.id = id;
 
     }
 
@@ -106,8 +106,8 @@ public String getName() {
         return village;
     }
 
-    public String getId() {
-        return id;
-    }
+    //public String getId() {
+  //      return id;
+    //}
 }
 

@@ -145,6 +145,8 @@ public class GalleryFragment extends Fragment {
 
     }
 
+    //selecting images
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -201,7 +203,7 @@ public class GalleryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(idUri==null || certUri==null || feeUri==null || reportUri==null || genderButton.getText().toString().equals(getResources().getString(R.string.select_gender))){
-                    Toast.makeText(getActivity(),"Please Upload All Images!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"Please fill all the data!",Toast.LENGTH_LONG).show();
                     return;
                 }
                 Dialog progressDialog=new Dialog(getActivity());
@@ -209,22 +211,32 @@ public class GalleryFragment extends Fragment {
                 progressDialog.setCancelable(false);
                 progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 progressDialog.show();
+
+                //uploading id image
                 new UploadUtils().uploadIdPhoto(idUri, new CompleteListener() {
                     @Override
                     public void onComplete(String downLoadUrl) {
                         downloadUrls.add(downLoadUrl);
+
+                        //uploading certificate image
                         new UploadUtils().uploadCert(certUri, new CompleteListener() {
                             @Override
                             public void onComplete(String downLoadUrl1) {
                                 downloadUrls.add(downLoadUrl1);
+
+                                //uploading fee image
                                 new UploadUtils().uploadfee(feeUri, new CompleteListener() {
                                     @Override
                                     public void onComplete(String downLoadUrl2) {
                                         downloadUrls.add(downLoadUrl2);
+
+                                        //uploading report image
                                         new UploadUtils().uploadReport(reportUri, new CompleteListener() {
                                             @Override
                                             public void onComplete(String downLoadUrl3) {
                                                 downloadUrls.add(downLoadUrl3);
+
+                                                //uploading data to firebase
                                                 DatabaseReference reference= FirebaseDatabase.getInstance().getReference("requests")
                                                         .push();
                                                 Upload upload=new Upload(downloadUrls, FirebaseAuth.getInstance().getCurrentUser().getUid(),String.valueOf(System.currentTimeMillis()),genderButton.getText().toString(),"Pending", Calendar.getInstance().getTime().toString(),name.getText().toString(),phone.getText().toString(),email.getText().toString(),dob.getText().toString(),admNo.getText().toString(),course.getText().toString(),institution_number.getText().toString(),institution.getText().toString(),bank_name.getText().toString(),bank_account_number.getText().toString(),bank_branch.getText().toString(),district.getText().toString(),division.getText().toString(),location.getText().toString(),ward.getText().toString(),constituency.getText().toString(),sub_location.getText().toString(),village.getText().toString());
@@ -234,6 +246,19 @@ public class GalleryFragment extends Fragment {
                                                             public void onSuccess(Void aVoid) {
                                                                 progressDialog.dismiss();
                                                                 Toast.makeText(getActivity(),"Submitted Successfully!",Toast.LENGTH_LONG).show();
+
+                                                                //clearing data
+                                                                downloadUrls.clear();
+                                                                idUri=null;
+                                                                certUri=null;
+                                                                feeUri=null;
+                                                                reportUri=null;
+
+                                                                //clearing views
+                                                                idImage.setImageResource(R.drawable.ic_baseline_image_24);
+                                                                certView.setImageResource(R.drawable.ic_baseline_image_24);
+                                                                feeView.setImageResource(R.drawable.ic_baseline_image_24);
+                                                                reportView.setImageResource(R.drawable.ic_baseline_image_24);
                                                             }
                                                         });
                                             }
@@ -248,6 +273,8 @@ public class GalleryFragment extends Fragment {
             }
         });
     }
+
+    //getting the image uri
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
