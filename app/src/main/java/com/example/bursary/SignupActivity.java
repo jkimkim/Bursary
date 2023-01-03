@@ -296,6 +296,7 @@ if (phone.isEmpty()) {
 //                                        startActivity(goToHome);
 //                                        finish();
 
+                                        // Redirect to main activity
                                         startActivity(new Intent(SignupActivity.this, MainActivity.class));
                                         finish();
 
