@@ -19,6 +19,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.example.bursary.FetchUserData;
 import com.example.bursary.R;
@@ -245,6 +246,7 @@ public class GalleryFragment extends Fragment {
                                                             @Override
                                                             public void onSuccess(Void aVoid) {
                                                                 progressDialog.dismiss();
+
                                                                 Toast.makeText(getActivity(),"Submitted Successfully!",Toast.LENGTH_LONG).show();
 
                                                                 //clearing data
@@ -259,6 +261,9 @@ public class GalleryFragment extends Fragment {
                                                                 certView.setImageResource(R.drawable.ic_baseline_image_24);
                                                                 feeView.setImageResource(R.drawable.ic_baseline_image_24);
                                                                 reportView.setImageResource(R.drawable.ic_baseline_image_24);
+                                                                //navigating to home
+                                                                Navigation.findNavController(v).navigate(R.id.nav_home);
+                                                                //create pdf
                                                             }
                                                         });
                                             }
