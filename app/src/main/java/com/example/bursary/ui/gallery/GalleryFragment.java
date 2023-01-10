@@ -3,10 +3,18 @@ package com.example.bursary.ui.gallery;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +49,10 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.opensooq.supernova.gligar.GligarPicker;
 
+import java.io.Console;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -263,7 +274,333 @@ public class GalleryFragment extends Fragment {
                                                                 reportView.setImageResource(R.drawable.ic_baseline_image_24);
                                                                 //navigating to home
                                                                 Navigation.findNavController(v).navigate(R.id.nav_home);
-                                                                //create pdf
+                                                                //create pdf and send to email
+                                                                createPdf();
+                                                            }
+
+                                                            private void createPdf() {
+                                                                //creating a pdf document
+                                                                PdfDocument document=new PdfDocument();
+                                                                //paint
+                                                                Paint paint=new Paint();
+                                                                //paint.setColor(Color.parseColor("#FFFFFF"));
+                                                                //paint.setStyle(Paint.Style.FILL);
+                                                                //paint.setTextAlign(Paint.Align.CENTER);
+                                                                //paint.setTextSize(50f);
+                                                                //paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                //paint.setAntiAlias(true);
+                                                                //paint.setUnderlineText(true);
+                                                                //paint.setFakeBoldText(true);
+                                                                //paint.setStrikeThruText(true);
+                                                                //paint.setShadowLayer(1f,0f,1f,Color.BLUE);
+                                                                //paint.setTextSkewX(-0.25f);
+                                                                //paint.setTextScaleX(1.5f);
+                                                                //paint.setLetterSpacing(0.1f);
+                                                                //paint.setSubpixelText(true);
+                                                                //paint.setLinearText(true);
+                                                                //paint.setElegantTextHeight(true);
+                                                                //paint.setDither(true);
+                                                                //paint.setFilterBitmap(true);
+                                                                //paint.setAlpha(0x80);
+                                                                //paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
+                                                                //paint.setMaskFilter(new BlurMaskFilter(8, BlurMaskFilter.Blur.NORMAL));
+                                                                //paint.setPathEffect(new CornerPathEffect(10));
+                                                                //paint.setShader(new LinearGradient(0,0,100,100, Color.RED,Color.BLUE, Shader.TileMode.REPEAT));
+                                                                //paint.setColorFilter(new LightingColorFilter(0xFFFF00FF, 0x00000000));
+                                                                //paint.setRasterizer(new Rasterizer());
+
+                                                                //creating a page description
+                                                                PdfDocument.PageInfo pageInfo=new PdfDocument.PageInfo.Builder(1200,2010,1).create();
+                                                                //start a page
+                                                                PdfDocument.Page page=document.startPage(pageInfo);
+                                                                //drawing something on the page
+                                                                Canvas canvas=page.getCanvas();
+                                                                //canvas.drawCircle(500,500,200,paint);
+                                                                //canvas.drawBitmap(bitmap,0,0,paint);
+                                                                //canvas.drawText("Hello World",500,500,paint);
+                                                                //canvas.drawLine(100,100,500,500,paint);
+                                                                //canvas.drawRoundRect(100,100,500,500,50,50,paint);
+                                                                //canvas.drawRect(100,100,500,500,paint);
+                                                                //canvas.drawOval(100,100,500,500,paint);
+
+                                                                //drawing the watermark
+                                                                Bitmap bitmaps= BitmapFactory.decodeResource(getResources(),R.drawable.lamulogo);
+                                                                canvas.drawBitmap(bitmaps,0,0,paint);
+
+                                                                //drawing the title
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.CENTER);
+                                                                paint.setTextSize(50f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Application form",600,100,paint);
+
+                                                                //drawing the logo
+                                                                Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.lamulogo);
+                                                                canvas.drawBitmap(bitmap,50,50,paint);
+
+                                                                //drawing the title
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.CENTER);
+                                                                paint.setTextSize(50f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("County Government of Lamu",600,200,paint);
+
+                                                                //drawing the subheading
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.CENTER);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("University and Collage Bursary Application Form",600,300,paint);
+
+                                                                //drawing the subheading
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.CENTER);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("For the year 2022/2023",600,350,paint);
+
+                                                                //form number
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Form Number: *******",50,450,paint);
+
+                                                                //ward
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.RIGHT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Ward: "+ward.getText().toString(),50,450,paint);
+
+                                                                //drawing the subheading
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Personal Details",50,550,paint);
+
+                                                                //full name
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Full Name: "+name.getText().toString(),50,600,paint);
+
+                                                                //gender
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.RIGHT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("sex :"+genderButton.getText().toString(),50,600,paint);
+
+                                                                //date of birth
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Date of Birth: "+dob.getText().toString(),50,650,paint);
+
+                                                                //adm number
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Admission Number: "+admNo.getText().toString(),50,700,paint);
+
+                                                                //telephone number
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Telephone Number: "+phone.getText().toString(),50,750,paint);
+
+                                                                //email
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Email: "+email.getText().toString(),50,800,paint);
+
+                                                                //drawing the subheading
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Part B: Institution details",50,850,paint);
+
+                                                                //institution name
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Institution Name: "+institution.getText().toString(),50,900,paint);
+
+                                                                //course
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Course: "+course.getText().toString(),50,950,paint);
+
+                                                                //year of study
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Year of Study: ",50,1000,paint);
+
+                                                                //drawing the subheading
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Part C: Residence",50,1050,paint);
+
+                                                                //district
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("District: "+district.getText().toString(),50,1100,paint);
+
+                                                                //division
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Division: "+division.getText().toString(),50,1150,paint);
+
+                                                                //location
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Location: "+location.getText().toString(),50,1200,paint);
+
+                                                                //ward
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Ward: "+ward.getText().toString(),50,1250,paint);
+
+                                                                //constituency
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Constituency: "+constituency.getText().toString(),50,1300,paint);
+
+                                                                //sub-location
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Sub-location: "+sub_location.getText().toString(),50,1350,paint);
+
+                                                                //village
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Village: "+village.getText().toString(),50,1400,paint);
+
+                                                                //the end of the form
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("End of Form",50,1450,paint);
+
+                                                                //drawing the signature
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Signature: ",50,1500,paint);
+
+
+                                                                //drawing the date
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Date: ",50,1550,paint);
+
+                                                                //saving the pdf
+                                                                document.finishPage(page);
+                                                                File file = new File(Environment.getExternalStorageDirectory(), "/"+name.getText().toString()+".pdf");
+                                                                try {
+                                                                    document.writeTo(new FileOutputStream(file));
+                                                                    Toast.makeText(getActivity(), "PDF saved", Toast.LENGTH_SHORT).show();
+                                                                } catch (IOException e) {
+                                                                    e.printStackTrace();
+                                                                    Toast.makeText(getActivity(), "Something wrong: " + e.toString(), Toast.LENGTH_LONG).show();
+
+                                                                    //logging the error
+
+                                                                    Log.e("main", "error "+e.toString());
+                                                                }
+
+                                                                //closing the document
+                                                                document.close();
                                                             }
                                                         });
                                             }
