@@ -383,7 +383,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Ward: "+ward.getText().toString(),50,450,paint);
+                                                                canvas.drawText("Ward: "+ward.getText().toString(),200,450,paint);
 
                                                                 //drawing the subheading
                                                                 paint.setColor(Color.BLACK);
@@ -410,7 +410,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("sex :"+genderButton.getText().toString(),50,600,paint);
+                                                                canvas.drawText("sex :"+genderButton.getText().toString(),200,600,paint);
 
                                                                 //date of birth
                                                                 paint.setColor(Color.BLACK);
@@ -601,6 +601,20 @@ public class GalleryFragment extends Fragment {
 
                                                                 //closing the document
                                                                 document.close();
+
+
+
+                                                                //sending the pdf to the email
+                                                                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                                                                emailIntent.setType("text/plain");
+                                                                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {email.getText().toString()});
+                                                                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Bursary Application formForm");
+                                                                emailIntent.putExtra(Intent.EXTRA_TEXT, "Please find attached document");
+                                                                emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://"+file));
+
+                                                                startActivity(Intent.createChooser(emailIntent, "Send email..."));
+
+
                                                             }
                                                         });
                                             }
