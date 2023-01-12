@@ -5,10 +5,13 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.example.bursary.Upload;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -16,9 +19,13 @@ import java.util.List;
 
 public class Fetcher {
     private ValueEventListener eventListener, genderListener;
+    private DatabaseReference databaseReference;
+    private List<Upload> uploads;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    FirebaseUser user = mAuth.getCurrentUser();
 
     public void fetchApplications(CompleteListener listener) {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("requests");
+        Query reference = FirebaseDatabase.getInstance().getReference("requests").orderByChild("email").equalTo(user.getEmail());
         eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

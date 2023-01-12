@@ -310,7 +310,7 @@ public class GalleryFragment extends Fragment {
                                                                 //paint.setRasterizer(new Rasterizer());
 
                                                                 //creating a page description
-                                                                PdfDocument.PageInfo pageInfo=new PdfDocument.PageInfo.Builder(1200,2010,1).create();
+                                                                PdfDocument.PageInfo pageInfo=new PdfDocument.PageInfo.Builder(1200,2010,2).create();
                                                                 //start a page
                                                                 PdfDocument.Page page=document.startPage(pageInfo);
                                                                 //drawing something on the page
@@ -325,7 +325,12 @@ public class GalleryFragment extends Fragment {
 
                                                                 //drawing the watermark
                                                                 Bitmap bitmaps= BitmapFactory.decodeResource(getResources(),R.drawable.lamulogo);
-                                                                canvas.drawBitmap(bitmaps,0,0,paint);
+                                                                //aligning the watermark to the center of the page
+                                                                int x=pageInfo.getPageWidth()/2-bitmaps.getWidth()/2;
+                                                                int y=pageInfo.getPageHeight()/2-bitmaps.getHeight()/2;
+                                                                canvas.drawBitmap(bitmaps,x,y,paint);
+                                                                //reducing the opacity of the watermark
+                                                                paint.setAlpha(0x80);
 
                                                                 //drawing the title
                                                                 paint.setColor(Color.BLACK);
@@ -338,7 +343,10 @@ public class GalleryFragment extends Fragment {
 
                                                                 //drawing the logo
                                                                 Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.lamulogo);
+
+                                                                //aligning the logo below the title and to the left of the title
                                                                 canvas.drawBitmap(bitmap,50,50,paint);
+                                                                //making the logo smaller
 
                                                                 //drawing the title
                                                                 paint.setColor(Color.BLACK);
@@ -383,7 +391,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Ward: "+ward.getText().toString(),200,450,paint);
+                                                                canvas.drawText("Ward: "+ward.getText().toString(),1150,450,paint);
 
                                                                 //drawing the subheading
                                                                 paint.setColor(Color.BLACK);
@@ -410,7 +418,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("sex :"+genderButton.getText().toString(),200,600,paint);
+                                                                canvas.drawText("sex :"+genderButton.getText().toString(),1150,600,paint);
 
                                                                 //date of birth
                                                                 paint.setColor(Color.BLACK);
