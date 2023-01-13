@@ -324,13 +324,13 @@ public class GalleryFragment extends Fragment {
                                                                 //canvas.drawOval(100,100,500,500,paint);
 
                                                                 //drawing the watermark
-                                                                Bitmap bitmaps= BitmapFactory.decodeResource(getResources(),R.drawable.lamulogo);
+                                                                Bitmap bitmaps= BitmapFactory.decodeResource(getResources(),R.drawable.img_1);
                                                                 //aligning the watermark to the center of the page
                                                                 int x=pageInfo.getPageWidth()/2-bitmaps.getWidth()/2;
                                                                 int y=pageInfo.getPageHeight()/2-bitmaps.getHeight()/2;
                                                                 canvas.drawBitmap(bitmaps,x,y,paint);
                                                                 //reducing the opacity of the watermark
-                                                                paint.setAlpha(0x80);
+                                                                paint.setAlpha(130);
 
                                                                 //drawing the title
                                                                 paint.setColor(Color.BLACK);
@@ -345,8 +345,19 @@ public class GalleryFragment extends Fragment {
                                                                 Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.lamulogo);
 
                                                                 //aligning the logo below the title and to the left of the title
-                                                                canvas.drawBitmap(bitmap,50,50,paint);
-                                                                //making the logo smaller
+                                                                //making the size of the logo smaller
+                                                                bitmap=Bitmap.createScaledBitmap(bitmap,200,200,true);
+                                                                //aligning the logo below the title and to the right of the title
+                                                                canvas.drawBitmap(bitmap,1000,50,paint);
+
+                                                                //drawing the national logo
+                                                                Bitmap bitmap1= BitmapFactory.decodeResource(getResources(),R.drawable.img_2);
+
+                                                                //aligning the logo below the title and to the left of the title
+                                                                //making the size of the logo smaller
+                                                                bitmap1=Bitmap.createScaledBitmap(bitmap1,200,200,true);
+                                                                //aligning the logo below the title and to the right of the title
+                                                                canvas.drawBitmap(bitmap1,50,50,paint);
 
                                                                 //drawing the title
                                                                 paint.setColor(Color.BLACK);
@@ -365,13 +376,15 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
                                                                 paint.setAntiAlias(true);
                                                                 canvas.drawText("University and Collage Bursary Application Form",600,300,paint);
+                                                                //underlining the subheading
+                                                                canvas.drawLine(100,302,1100,302,paint);
 
                                                                 //drawing the subheading
                                                                 paint.setColor(Color.BLACK);
                                                                 paint.setStyle(Paint.Style.FILL);
                                                                 paint.setTextAlign(Paint.Align.CENTER);
                                                                 paint.setTextSize(30f);
-                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
                                                                 canvas.drawText("For the year 2022/2023",600,350,paint);
 
@@ -382,7 +395,9 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Form Number: *******",50,450,paint);
+                                                                canvas.drawText("Form Number: ",50,450,paint);
+                                                                //adding a dotted line after the form number
+                                                                canvas.drawLine(250,450,500,450,paint);
 
                                                                 //ward
                                                                 paint.setColor(Color.BLACK);
@@ -400,7 +415,9 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Personal Details",50,550,paint);
+                                                                canvas.drawText("Part A: Personal Details",50,550,paint);
+                                                                //underlining the subheading
+                                                                canvas.drawLine(50,550,390,550,paint);
 
                                                                 //full name
                                                                 paint.setColor(Color.BLACK);
