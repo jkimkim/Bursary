@@ -75,6 +75,8 @@
     <string name="phone">Phone</string>
 
     <string name="admin_options">Admin Options</string>
+    <string name="terms">By signing up you agree to the</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
 
     <string name="menu_subsequent_application">Subsequent Application</string>
     <!-- TODO: Remove or change this placeholder text -->

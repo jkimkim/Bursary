@@ -310,7 +310,7 @@ public class GalleryFragment extends Fragment {
                                                                 //paint.setRasterizer(new Rasterizer());
 
                                                                 //creating a page description
-                                                                PdfDocument.PageInfo pageInfo=new PdfDocument.PageInfo.Builder(1200,2010,2).create();
+                                                                PdfDocument.PageInfo pageInfo=new PdfDocument.PageInfo.Builder(1200,2010,1).create();
                                                                 //start a page
                                                                 PdfDocument.Page page=document.startPage(pageInfo);
                                                                 //drawing something on the page
@@ -409,6 +409,9 @@ public class GalleryFragment extends Fragment {
                                                                 canvas.drawText("Ward: "+ward.getText().toString(),1150,450,paint);
 
                                                                 //drawing the subheading
+                                                                //Instructions
+
+                                                                //drawing the subheading
                                                                 paint.setColor(Color.BLACK);
                                                                 paint.setStyle(Paint.Style.FILL);
                                                                 paint.setTextAlign(Paint.Align.LEFT);
@@ -417,7 +420,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setAntiAlias(true);
                                                                 canvas.drawText("Part A: Personal Details",50,550,paint);
                                                                 //underlining the subheading
-                                                                canvas.drawLine(50,550,390,550,paint);
+                                                                //canvas.drawLine(50,550,390,550,paint);
 
                                                                 //full name
                                                                 paint.setColor(Color.BLACK);
@@ -581,36 +584,194 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setAntiAlias(true);
                                                                 canvas.drawText("Village: "+village.getText().toString(),50,1400,paint);
 
-                                                                //the end of the form
+                                                                //drawing the subheading
+                                                                //Declaration
                                                                 paint.setColor(Color.BLACK);
                                                                 paint.setStyle(Paint.Style.FILL);
                                                                 paint.setTextAlign(Paint.Align.LEFT);
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("End of Form",50,1450,paint);
+                                                                canvas.drawText("Part D: Declaration",50,1450,paint);
+                                                                //underlining the declaration
 
-                                                                //drawing the signature
+                                                                //declaration
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(20f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("I, "+name.getText().toString()+" declare to the best of my knowledge that the information given is true and accurate.",50,1525,paint);
+
+                                                                //parent's name and signature
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Parent's Name: ",50,1575,paint);
+                                                                //adding a dotted line after the parent's name
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawLine(300,1575,500,1575,paint);
+                                                                //signature
+                                                                canvas.drawText("Signature: ",50,1625,paint);
+                                                                //adding a dotted line after the signature
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawLine(300,1625,500,1625,paint);
+                                                                //date
+                                                                canvas.drawText("Date: ",50,1675,paint);
+                                                                //adding a dotted line after the date
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawLine(300,1675,500,1675,paint);
+
+                                                                //drawing the subheading
+                                                                //committee's recommendation
                                                                 paint.setColor(Color.BLACK);
                                                                 paint.setStyle(Paint.Style.FILL);
                                                                 paint.setTextAlign(Paint.Align.LEFT);
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Signature: ",50,1500,paint);
+                                                                canvas.drawText("Part E: Committee's Recommendation",50,1725,paint);
+
+                                                                //underlining the committee's recommendation
+                                                                //paint.setColor(Color.BLACK);
+                                                                //paint.setStyle(Paint.Style.FILL);
+                                                                //paint.setTextAlign(Paint.Align.LEFT);
+                                                                //paint.setTextSize(30f);
+                                                                //paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                //paint.setAntiAlias(true);
+                                                                //canvas.drawLine(50,1750,500,1750,paint);
+
+                                                                //next page
+                                                                document.finishPage(page);
+                                                                //page 2
+                                                                PdfDocument.Page page2 = document.startPage(pageInfo);
+                                                                Canvas canvas2 = page2.getCanvas();
 
 
-                                                                //drawing the date
+                                                                //paint.setColor(Color.GRAY);
+                                                                //paint.setStyle(Paint.Style.FILL);
+                                                                //paint.setTextAlign(Paint.Align.CENTER);
+                                                                //paint.setTextSize(100f);
+                                                                //paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                //paint.setAntiAlias(true);
+                                                                //canvas2.drawText("CONFIDENTIAL",297,421,paint);
+
+                                                                //committee's recommendation. Bursary approved ( ) Not Approve ( )
                                                                 paint.setColor(Color.BLACK);
                                                                 paint.setStyle(Paint.Style.FILL);
                                                                 paint.setTextAlign(Paint.Align.LEFT);
                                                                 paint.setTextSize(30f);
-                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Date: ",50,1550,paint);
+                                                                canvas2.drawText("1. Bursary approved ( ) Not Approve ( )",50,50,paint);
+                                                                //chairman's name
+                                                                canvas2.drawText("Chairman's Name: ",50,100,paint);
+                                                                //adding a dotted line after the chairman's name
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas2.drawLine(300,100,500,100,paint);
+                                                                //signature
+                                                                canvas2.drawText("Signature: ",50,150,paint);
+                                                                //adding a dotted line after the signature
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas2.drawLine(300,150,500,150,paint);
+                                                                //date
+                                                                canvas2.drawText("Date: ",50,200,paint);
+                                                                //adding a dotted line after the date
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas2.drawLine(300,200,500,200,paint);
+
+                                                                //secretary's name
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas2.drawText("Secretary's Name: ",50,250,paint);
+                                                                //adding a dotted line after the secretary's name
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas2.drawLine(300,250,500,250,paint);
+                                                                //signature
+                                                                canvas2.drawText("Signature: ",50,300,paint);
+                                                                //adding a dotted line after the signature
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas2.drawLine(300,300,500,300,paint);
+                                                                //date
+                                                                canvas2.drawText("Date: ",50,350,paint);
+                                                                //adding a dotted line after the date
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas2.drawLine(300,350,500,350,paint);
+
+                                                                //official stamp
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas2.drawText("Official Stamp: ",50,400,paint);
+                                                                //adding a dotted line after the official stamp
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas2.drawLine(300,400,500,400,paint);
+
+
 
                                                                 //saving the pdf
-                                                                document.finishPage(page);
+                                                                document.finishPage(page2);
                                                                 File file = new File(Environment.getExternalStorageDirectory(), "/"+name.getText().toString()+".pdf");
                                                                 try {
                                                                     document.writeTo(new FileOutputStream(file));

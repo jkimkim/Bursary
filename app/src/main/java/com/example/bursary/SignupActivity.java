@@ -41,6 +41,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             txtPhone,txtAdmNo,txtCourse,institutionPhone,txtInstitution,txtBankName, txtBankAccNo, txtBankBranch,txtDistrict,txtDivision,txtLocation,txtWard,txtConstituency,txtSubLocation,txtVillage;
     private Button btnRegister;
     ProgressDialog progressDialog;
+    private TextView txtConditions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
