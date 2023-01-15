@@ -155,7 +155,23 @@ If any provision of these terms and conditions is found to be invalid by any cou
     <string name="NoInternetRetry">Retry</string>
     <string name="NoInternetExit">Exit</string>
     <string name="logout">Logout</string>
-
+    <string name="logout_message">Are you sure you want to logout?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="error">Error</string>
+    <string name="error_message">Something went wrong. Please try again later.</string>
+    <string name="uploading">Uploading...</string>
+    <string name="uploading_message">Please wait while we upload your document</string>
+    <string name="uploading_success">Upload Successful</string>
+    <string name="uploading_success_message">Your document has been uploaded successfully</string>
+    <string name="uploading_failed">Upload Failed</string>
+    <string name="uploading_failed_message">Your document could not be uploaded. Please try again later.</string>
+    <string name="upload_image">Upload Profile Image</string>
+    <string name="upload_image_message">Please select an image to upload</string>
+    <string name="image_description">Profile Image</string>
+    <string name="upload">Upload</string>
     <string name="menu_subsequent_application">Subsequent Application</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -1,5 +1,6 @@
 package com.example.bursary;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -36,6 +37,14 @@ public class ProfileFragment extends Fragment {
         email = view.findViewById(R.id.email);
         phoneNo = view.findViewById(R.id.phone);
         profileImage = view.findViewById(R.id.profile_image);
+        //set click on profile image to change profile picture
+        profileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //open ChangeProfile activity
+                startActivity(new Intent(getActivity(), ChangeProfile.class));
+            }
+        });
         welcome_text = view.findViewById(R.id.welcome_text);
         fAuth = FirebaseAuth.getInstance();
         FirebaseUser user = fAuth.getCurrentUser();
