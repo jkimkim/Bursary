@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class ProfileFragment extends Fragment {
 
-    private  TextView fullName,email,phoneNo;
+    private  TextView fullName,email,phoneNo,welcome_text;
     private String name,emailId,phone;
     private ImageView profileImage;
     FirebaseAuth fAuth;
@@ -36,6 +36,7 @@ public class ProfileFragment extends Fragment {
         email = view.findViewById(R.id.email);
         phoneNo = view.findViewById(R.id.phone);
         profileImage = view.findViewById(R.id.profile_image);
+        welcome_text = view.findViewById(R.id.welcome_text);
         fAuth = FirebaseAuth.getInstance();
         FirebaseUser user = fAuth.getCurrentUser();
 
@@ -61,6 +62,7 @@ public class ProfileFragment extends Fragment {
                 fullName.setText(name);
                 email.setText(emailId);
                 phoneNo.setText(phone);
+                welcome_text.setText("Welcome "+name + "!");
             }
         });
     }
