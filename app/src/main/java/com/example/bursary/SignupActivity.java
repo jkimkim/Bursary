@@ -78,6 +78,9 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         editTextDate = findViewById(R.id.editTextDate);
         editTextDate.setOnClickListener(this);
 
+        txtConditions = findViewById(R.id.txtConditions);
+        txtConditions.setOnClickListener(this);
+
         btnRegister = findViewById(R.id.btnRegister);
 
 
@@ -102,7 +105,16 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 com.example.bursary.ui.DatePicker mDatePickerDialogFragment = new com.example.bursary.ui.DatePicker();
                 mDatePickerDialogFragment.show(getSupportFragmentManager(), "Date Picker");
                 break;
+                case R.id.txtConditions:
+                    termsAndConditions();
+                    break;
         }
+    }
+
+    //terms and conditions
+    private void termsAndConditions() {
+        TermsAndConditions termsAndConditions = new TermsAndConditions();
+        termsAndConditions.show(getSupportFragmentManager(), "Terms and Conditions");
     }
 
     //register user
