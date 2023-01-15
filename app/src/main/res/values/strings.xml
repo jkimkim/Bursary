@@ -150,6 +150,11 @@ If any provision of these terms and conditions is found to be invalid by any cou
     </string>
 
     <string name="Loading">Loading...</string>
+    <string name="NoInternet">No Internet Connection</string>
+    <string name="NoInternetText">Please check your internet connection and try again</string>
+    <string name="NoInternetRetry">Retry</string>
+    <string name="NoInternetExit">Exit</string>
+    <string name="logout">Logout</string>
 
     <string name="menu_subsequent_application">Subsequent Application</string>
     <!-- TODO: Remove or change this placeholder text -->
