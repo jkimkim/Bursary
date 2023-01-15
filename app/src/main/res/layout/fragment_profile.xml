@@ -14,28 +14,31 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/profile_background">
-            
+            android:layout_height="250dp"
+            android:background="@color/teal_200">
+
             <ImageView
+                android:id="@+id/profile_image"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:id="@+id/profile_image"
-                android:layout_alignParentBottom="true"
+                android:layout_above="@+id/welcome_text"
+                android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="20dp"
-                android:src="@drawable/ic_photo_camera_black_36dp" />
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_baseline_add_a_photo_24" />
 
             <TextView
+                android:id="@+id/welcome_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/welcome_text"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="20dp"
                 android:text="@string/Loading"
-                android:textColor="@color/white"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="@color/white"
                 android:textSize="20sp" />
 
         </RelativeLayout>
@@ -45,6 +48,7 @@
             android:layout_height="match_parent"
             android:layout_margin="20dp"
             android:padding="20dp"
+            android:elevation="5dp"
             android:background="@color/white">
             
             <ImageView

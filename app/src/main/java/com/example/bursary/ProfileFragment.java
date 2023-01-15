@@ -1,6 +1,7 @@
 package com.example.bursary;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class ProfileFragment extends Fragment {
 
@@ -72,6 +74,10 @@ public class ProfileFragment extends Fragment {
                 email.setText(emailId);
                 phoneNo.setText(phone);
                 welcome_text.setText("Welcome "+name + "!");
+
+                //set image view to user's profile picture from firebase using Picasso
+                Uri uri = user.getPhotoUrl();
+                Picasso.get().load(uri).into(profileImage);
             }
         });
     }
