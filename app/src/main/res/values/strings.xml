@@ -149,6 +149,8 @@ If any provision of these terms and conditions is found to be invalid by any cou
 
     </string>
 
+    <string name="Loading">Loading...</string>
+
     <string name="menu_subsequent_application">Subsequent Application</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
