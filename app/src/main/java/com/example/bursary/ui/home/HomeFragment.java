@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.example.bursary.R;
 import com.example.bursary.Upload;
@@ -29,7 +30,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private FragmentHomeBinding binding;
     ProgressDialog progressDialog;
 
-    private LinearLayout firstApplication, submittedApplication, myProfile, adminSection;
+    private LinearLayout firstApplication, submittedApplication, myProfile;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -48,9 +49,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         submittedApplication.setOnClickListener(this);
 
         myProfile = view.findViewById(R.id.myProfile);
-
-        adminSection = view.findViewById(R.id.adminSection);
-        adminSection.setOnClickListener(this);
+        myProfile.setOnClickListener(this);
 
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Submitting...");
@@ -72,8 +71,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Fragment fragment = null;
         switch (v.getId()) {
             case R.id.firstApplication:
-                fragment = new GalleryFragment();
-                replaceFragment(fragment);
+                Navigation.findNavController(v).navigate(R.id.nav_gallery);
                 pDialog.dismiss();
                 break;
             case R.id.submittedApplication:
@@ -88,6 +86,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 });
 
                 break;
+            case R.id.myProfile:
+                //navigate to profile fragment
+                Navigation.findNavController(v).navigate(R.id.profileFragment);
+                pDialog.dismiss();
+
             //case R.id.adminSection:
               //  pDialog.show();
                 //new Fetcher().fetchApplications(new CompleteListener() {
