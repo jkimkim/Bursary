@@ -5,12 +5,16 @@ package com.example.bursary;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.bursary.ui.CompleteListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -40,8 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private ImageView imageView;
+    private TextView txtname_nav, txtemail_nav;
     List<FetchUserData> fetchUserDataList;
     private ValueEventListener eventListener;
+    private String name, email;
+
 
     FirebaseAuth firebaseAuth;
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -54,6 +62,9 @@ DatabaseReference reference = database.getReference("Users");
 
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
+        //imageView = findViewById(R.id.profile_image);
+        //txtname_nav = findViewById(R.id.txtname_nav);
+        //txtemail_nav = findViewById(R.id.txtemail_nav);
 
 
        // DatabaseReference ref = database.getReference("Users").child(user.getUid());
@@ -80,6 +91,9 @@ DatabaseReference reference = database.getReference("Users");
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        txtname_nav = binding.navView.getHeaderView(0).findViewById(R.id.txtname_nav);
+        txtemail_nav = binding.navView.getHeaderView(0).findViewById(R.id.txtemail_nav);
+        imageView = binding.navView.getHeaderView(0).findViewById(R.id.imageView);
 
         setSupportActionBar(binding.appBarMain.toolbar);
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
@@ -102,12 +116,15 @@ DatabaseReference reference = database.getReference("Users");
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
+    //load user name and email, profile image in navigation drawer
+
     private void checkUserStatus() {
         //get current user
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if (user != null) {
             //user is signed in stay here
-            //set email of logged in user
+            //show user data in navigation drawer
+            showUserData(user);
             //mProfileTv.setText(user.getEmail());
         } else {
             //user not signed in, go to main activity
@@ -116,6 +133,30 @@ DatabaseReference reference = database.getReference("Users");
         }
     }
 
+    private void showUserData(FirebaseUser user) {
+        //get user data from firebase database
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+        ref.child(user.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //get data
+                name = "" + snapshot.child("name").getValue();
+                email = "" + snapshot.child("email").getValue();
+                //set data
+                txtname_nav.setText(name);
+                txtemail_nav.setText(email);
+
+                //set profile image
+                Uri uri = user.getPhotoUrl();
+                Glide.with(MainActivity.this).load(uri).into(imageView);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 
 
     //@Override
