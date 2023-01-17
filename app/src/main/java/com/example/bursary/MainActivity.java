@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.example.bursary.ui.CompleteListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -159,7 +160,7 @@ private static final int WRITE_EXTERNAL_STORAGE_REQUEST_CODE=1;
 
                 //set profile image
                 Uri uri = user.getPhotoUrl();
-                Glide.with(MainActivity.this).load(uri).into(imageView);
+                Glide.with(MainActivity.this).load(uri).transform(new CircleCrop()).into(imageView);
             }
 
             @Override
