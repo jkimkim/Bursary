@@ -1,8 +1,10 @@
 package com.example.bursary.ui.gallery;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -25,6 +27,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
@@ -41,6 +46,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.components.BuildConfig;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -65,6 +71,33 @@ public class GalleryFragment extends Fragment {
     private Uri idUri,certUri,feeUri,reportUri;
     List<String> downloadUrls=new ArrayList<>();
     List<Upload> uploadList=new ArrayList<>();
+
+    //request codes
+    //write external storage request code
+    private static final int WRITE_EXTERNAL_STORAGE_REQUEST_CODE=1;
+
+    private void requestStoragePermission(){
+        if(ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+            new MaterialAlertDialogBuilder(getContext())
+                    .setTitle("Permission needed")
+                    .setMessage("This permission is needed because of this and that")
+                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},WRITE_EXTERNAL_STORAGE_REQUEST_CODE);
+                        }
+                    })
+                    .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .create().show();
+        }else{
+            ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},WRITE_EXTERNAL_STORAGE_REQUEST_CODE);
+        }
+    }
 
     private TextView name,phone,email,dob,admNo,course,institution_number,institution,bank_name,bank_account_number,bank_branch,district,division,location,ward,constituency,sub_location,village;
 
@@ -152,6 +185,11 @@ public class GalleryFragment extends Fragment {
 
             }
         });
+
+        //requesting permission to write to external storage
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            requestStoragePermission();
+        }
 
         return view;
 
@@ -808,7 +846,12 @@ public class GalleryFragment extends Fragment {
 
                                                                 //saving the pdf
                                                                 document.finishPage(page2);
+
+                                                                //saving the pdf after checking for permission using onRequestPermissionsResult
+
                                                                 File file = new File(Environment.getExternalStorageDirectory(), "/"+name.getText().toString()+".pdf");
+
+
                                                                 try {
                                                                     document.writeTo(new FileOutputStream(file));
                                                                     Toast.makeText(getActivity(), "PDF saved", Toast.LENGTH_SHORT).show();
@@ -827,16 +870,6 @@ public class GalleryFragment extends Fragment {
 
 
                                                                 //sending the pdf to the email
-                                                                Intent emailIntent = new Intent(Intent.ACTION_SEND);
-                                                                emailIntent.setType("text/plain");
-                                                                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {email.getText().toString()});
-                                                                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Bursary Application formForm");
-                                                                emailIntent.putExtra(Intent.EXTRA_TEXT, "Please find attached document");
-                                                                emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://"+file));
-
-                                                                startActivity(Intent.createChooser(emailIntent, "Send email..."));
-
-
                                                             }
                                                         });
                                             }

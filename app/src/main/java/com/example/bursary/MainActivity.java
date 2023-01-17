@@ -2,6 +2,7 @@ package com.example.bursary;
 
 
 
+import android.Manifest;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,6 +22,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -55,10 +57,19 @@ public class MainActivity extends AppCompatActivity {
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
 DatabaseReference reference = database.getReference("Users");
 
+//read and write external storage permission
+private static final int WRITE_EXTERNAL_STORAGE_REQUEST_CODE=1;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //request permission to write to external storage
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},WRITE_EXTERNAL_STORAGE_REQUEST_CODE);
+
 
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
