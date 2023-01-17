@@ -516,10 +516,46 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setColor(Color.BLACK);
                                                                 paint.setStyle(Paint.Style.FILL);
                                                                 paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(25f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Bank Details",50,1050,paint);
+
+                                                                //account name/bank name
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Bank name: "+bank_name.getText().toString(),50,1100,paint);
+
+                                                                //account number
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Account Number: "+bank_account_number.getText().toString(),50,1150,paint);
+
+                                                                //bank name
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
+                                                                paint.setTextSize(30f);
+                                                                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+                                                                paint.setAntiAlias(true);
+                                                                canvas.drawText("Bank branch: "+bank_branch.getText().toString(),50,1200,paint);
+
+                                                                //drawing the subheading
+                                                                paint.setColor(Color.BLACK);
+                                                                paint.setStyle(Paint.Style.FILL);
+                                                                paint.setTextAlign(Paint.Align.LEFT);
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Part C: Residence",50,1050,paint);
+                                                                canvas.drawText("Part C: Residence",50,1250,paint);
 
                                                                 //district
                                                                 paint.setColor(Color.BLACK);
@@ -528,7 +564,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("District: "+district.getText().toString(),50,1100,paint);
+                                                                canvas.drawText("District: "+district.getText().toString(),50,1300,paint);
 
                                                                 //division
                                                                 paint.setColor(Color.BLACK);
@@ -537,7 +573,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Division: "+division.getText().toString(),50,1150,paint);
+                                                                canvas.drawText("Division: "+division.getText().toString(),50,1350,paint);
 
                                                                 //location
                                                                 paint.setColor(Color.BLACK);
@@ -546,7 +582,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Location: "+location.getText().toString(),50,1200,paint);
+                                                                canvas.drawText("Location: "+location.getText().toString(),50,1400,paint);
 
                                                                 //ward
                                                                 paint.setColor(Color.BLACK);
@@ -555,7 +591,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Ward: "+ward.getText().toString(),50,1250,paint);
+                                                                canvas.drawText("Ward: "+ward.getText().toString(),50,1450,paint);
 
                                                                 //constituency
                                                                 paint.setColor(Color.BLACK);
@@ -564,7 +600,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Constituency: "+constituency.getText().toString(),50,1300,paint);
+                                                                canvas.drawText("Constituency: "+constituency.getText().toString(),50,1500,paint);
 
                                                                 //sub-location
                                                                 paint.setColor(Color.BLACK);
@@ -573,7 +609,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Sub-location: "+sub_location.getText().toString(),50,1350,paint);
+                                                                canvas.drawText("Sub-location: "+sub_location.getText().toString(),50,1550,paint);
 
                                                                 //village
                                                                 paint.setColor(Color.BLACK);
@@ -582,7 +618,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Village: "+village.getText().toString(),50,1400,paint);
+                                                                canvas.drawText("Village: "+village.getText().toString(),50,1600,paint);
 
                                                                 //drawing the subheading
                                                                 //Declaration
@@ -592,7 +628,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Part D: Declaration",50,1450,paint);
+                                                                canvas.drawText("Part D: Declaration",50,1650,paint);
                                                                 //underlining the declaration
 
                                                                 //declaration
@@ -611,7 +647,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Parent's Name: ",50,1575,paint);
+                                                                canvas.drawText("Parent's Name: ",50,1675,paint);
                                                                 //adding a dotted line after the parent's name
                                                                 paint.setColor(Color.BLACK);
                                                                 paint.setStyle(Paint.Style.FILL);
@@ -619,9 +655,9 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawLine(300,1575,500,1575,paint);
+                                                                canvas.drawLine(300,1675,500,1675,paint);
                                                                 //signature
-                                                                canvas.drawText("Signature: ",50,1625,paint);
+                                                                canvas.drawText("Signature: ",50,1725,paint);
                                                                 //adding a dotted line after the signature
                                                                 paint.setColor(Color.BLACK);
                                                                 paint.setStyle(Paint.Style.FILL);
@@ -629,9 +665,9 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawLine(300,1625,500,1625,paint);
+                                                                canvas.drawLine(300,1725,500,1725,paint);
                                                                 //date
-                                                                canvas.drawText("Date: ",50,1675,paint);
+                                                                canvas.drawText("Date: ",50,1775,paint);
                                                                 //adding a dotted line after the date
                                                                 paint.setColor(Color.BLACK);
                                                                 paint.setStyle(Paint.Style.FILL);
@@ -639,7 +675,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawLine(300,1675,500,1675,paint);
+                                                                canvas.drawLine(300,1775,500,1775,paint);
 
                                                                 //drawing the subheading
                                                                 //committee's recommendation
@@ -649,7 +685,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Part E: Committee's Recommendation",50,1725,paint);
+                                                                canvas.drawText("Part E: Committee's Recommendation",50,1825,paint);
 
                                                                 //underlining the committee's recommendation
                                                                 //paint.setColor(Color.BLACK);
