@@ -638,7 +638,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(20f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("I, "+name.getText().toString()+" declare to the best of my knowledge that the information given is true and accurate.",50,1525,paint);
+                                                                canvas.drawText("I, "+name.getText().toString()+" declare to the best of my knowledge that the information given is true and accurate.",50,1720,paint);
 
                                                                 //parent's name and signature
                                                                 paint.setColor(Color.BLACK);
@@ -647,7 +647,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Parent's Name: ",50,1675,paint);
+                                                                canvas.drawText("Parent's Name: ",50,1775,paint);
                                                                 //adding a dotted line after the parent's name
                                                                 paint.setColor(Color.BLACK);
                                                                 paint.setStyle(Paint.Style.FILL);
@@ -655,9 +655,9 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawLine(300,1675,500,1675,paint);
+                                                                canvas.drawLine(300,1775,500,1775,paint);
                                                                 //signature
-                                                                canvas.drawText("Signature: ",50,1725,paint);
+                                                                canvas.drawText("Signature: ",50,1825,paint);
                                                                 //adding a dotted line after the signature
                                                                 paint.setColor(Color.BLACK);
                                                                 paint.setStyle(Paint.Style.FILL);
@@ -665,9 +665,9 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawLine(300,1725,500,1725,paint);
+                                                                canvas.drawLine(300,1825,500,1825,paint);
                                                                 //date
-                                                                canvas.drawText("Date: ",50,1775,paint);
+                                                                canvas.drawText("Date: ",50,1875,paint);
                                                                 //adding a dotted line after the date
                                                                 paint.setColor(Color.BLACK);
                                                                 paint.setStyle(Paint.Style.FILL);
@@ -675,7 +675,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawLine(300,1775,500,1775,paint);
+                                                                canvas.drawLine(300,1875,500,1875,paint);
 
                                                                 //drawing the subheading
                                                                 //committee's recommendation
@@ -685,7 +685,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Part E: Committee's Recommendation",50,1825,paint);
+                                                                canvas.drawText("Part E: Committee's Recommendation",50,1925,paint);
 
                                                                 //underlining the committee's recommendation
                                                                 //paint.setColor(Color.BLACK);
