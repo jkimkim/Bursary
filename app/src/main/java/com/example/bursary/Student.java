@@ -1,38 +1,24 @@
 package com.example.bursary;
 
-import com.google.android.material.textfield.TextInputEditText;
-
+import java.io.Serializable;
 import java.util.List;
 
-public class Student {
-    private String firstName;
-    private String Email;
-    private String phoneNumber;
-    private String dateOfBirth;
-    private String admissionNumber;
-    private String institutionName;
-    private String courseName;
-    private String institutionPhoneNumber;
-    private String yearOfStudy;
-    private String bankName;
-    private String accountNumber;
-    private String branchName;
-    private String District;
-    private String Division;
-    private String Location;
-    private String Ward;
-    private String Constituency;
-    private String subLocation;
-    private String Village;
-    private List<String> downloadUrls;
-    private String id;
+public class Student implements Serializable {
+    List<String> downloadUrls;
+    String userId;
+    String uploadId;
+    String Gender;
+    String status;
+    String appDate;
+    private String firstName, Email, phoneNumber, dateOfBirth, admissionNumber, institutionName, courseName, institutionPhoneNumber, yearOfStudy,
+            bankName, accountNumber, branchName, District, Division, Location, Ward, Constituency, subLocation, Village;
 
-    public Student(String firstName, String email, String phoneNumber, String dateOfBirth, String admissionNumber, String institutionName, String courseName, String institutionPhoneNumber, String yearOfStudy, String bankName, String accountNumber, String branchName, String district, String division, String location, String ward, TextInputEditText constituency, String subLocation, String village) {
-    }
-
-    public Student(String firstName, String Email, String phoneNumber, String dateOfBirth, String admissionNumber, String institutionName, String courseName, String institutionPhoneNumber, String yearOfStudy, String bankName, String accountNumber, String branchName, String District, String Division, String Location, String Ward, String Constituency, String subLocation, String Village, List<String> downloadUrls) {
+    public Student(List<String> downloadUrls, String userId, String uploadId, String firstName, String email, String phoneNumber, String dateOfBirth, String admissionNumber, String institutionName, String courseName, String institutionPhoneNumber, String yearOfStudy, String bankName, String accountNumber, String branchName, String district, String division, String location, String ward, String constituency, String subLocation, String village) {
+        this.downloadUrls = downloadUrls;
+        this.userId = userId;
+        this.uploadId = uploadId;
         this.firstName = firstName;
-        this.Email = Email;
+        this.Email = email;
         this.phoneNumber = phoneNumber;
         this.dateOfBirth = dateOfBirth;
         this.admissionNumber = admissionNumber;
@@ -43,13 +29,63 @@ public class Student {
         this.bankName = bankName;
         this.accountNumber = accountNumber;
         this.branchName = branchName;
-        this.District = District;
-        this.Division = Division;
-        this.Location = Location;
-        this.Ward = Ward;
-        this.Constituency = Constituency;
+        this.District = district;
+        this.Division = division;
+        this.Location = location;
+        this.Ward = ward;
+        this.Constituency = constituency;
         this.subLocation = subLocation;
-        this.Village = Village;
+        this.Village = village;
+    }
+
+    public Student() {
+    }
+
+    public String getAppDate() {
+        return appDate;
+    }
+
+    public void setAppDate(String appDate) {
+        this.appDate = appDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getGender() {
+        return Gender;
+    }
+
+    public void setGender(String Gender) {
+        this.Gender=Gender;
+    }
+
+    public String getUploadId() {
+        return uploadId;
+    }
+
+    public void setUploadId(String uploadId) {
+        this.uploadId = uploadId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public List<String> getDownloadUrls() {
+        return downloadUrls;
+    }
+
+    public void setDownloadUrls(List<String> downloadUrls) {
         this.downloadUrls = downloadUrls;
     }
 
@@ -65,7 +101,7 @@ public class Student {
         return Email;
     }
 
-    public void setEmail(String Email) {
+    public void setEmail(String email) {
         this.Email = Email;
     }
 
@@ -153,7 +189,7 @@ public class Student {
         return District;
     }
 
-    public void setDistrict(String District) {
+    public void setDistrict(String district) {
         this.District = District;
     }
 
@@ -161,7 +197,7 @@ public class Student {
         return Division;
     }
 
-    public void setDivision(String Division) {
+    public void setDivision(String division) {
         this.Division = Division;
     }
 
@@ -169,7 +205,7 @@ public class Student {
         return Location;
     }
 
-    public void setLocation(String Location) {
+    public void setLocation(String location) {
         this.Location = Location;
     }
 
@@ -177,7 +213,7 @@ public class Student {
         return Ward;
     }
 
-    public void setWard(String Ward) {
+    public void setWard(String ward) {
         this.Ward = Ward;
     }
 
@@ -185,7 +221,7 @@ public class Student {
         return Constituency;
     }
 
-    public void setConstituency(String Constituency) {
+    public void setConstituency(String constituency) {
         this.Constituency = Constituency;
     }
 
@@ -201,16 +237,7 @@ public class Student {
         return Village;
     }
 
-    public void setVillage(String Village) {
+    public void setVillage(String village) {
         this.Village = Village;
     }
-
-    public List<String> getDownloadUrls() {
-        return downloadUrls;
-    }
-
-    public void setDownloadUrls(List<String> downloadUrls) {
-        this.downloadUrls = downloadUrls;
-    }
-
 }

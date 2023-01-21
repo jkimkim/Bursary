@@ -1,6 +1,7 @@
 package com.example.bursary.ui.gallery;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -35,6 +36,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.example.bursary.FetchUserData;
+import com.example.bursary.FirstApplicationFragment;
+import com.example.bursary.MainActivity;
 import com.example.bursary.R;
 import com.example.bursary.Upload;
 import com.example.bursary.databinding.FragmentGalleryBinding;
@@ -131,7 +134,7 @@ public class GalleryFragment extends Fragment {
         mAuth=FirebaseAuth.getInstance();
         user=mAuth.getCurrentUser();
         database=FirebaseDatabase.getInstance();
-        reference=database.getReference("Users");
+        reference=database.getReference("requests");
 
         name=view.findViewById(R.id.name);
         email=view.findViewById(R.id.email);
@@ -152,32 +155,74 @@ public class GalleryFragment extends Fragment {
         sub_location=view.findViewById(R.id.sub_location);
         village=view.findViewById(R.id.village);
 
+        // get a reference to the user's application data in the Firebase Realtime Database
+
         Query query=reference.orderByChild("email").equalTo(user.getEmail());
-        query.addValueEventListener(new ValueEventListener() {
+        query.addValueEventListener(new ValueEventListener(){
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
-                    Upload upload=dataSnapshot.getValue(Upload.class);
-                    uploadList.add(upload);
+                if (snapshot.exists()){
+                    for (DataSnapshot ds:snapshot.getChildren()){
+                        String name1=ds.child("name").getValue(String.class);
+                        String email1=ds.child("email").getValue(String.class);
+                        String phone1=ds.child("phone").getValue(String.class);
+                        String dob1=ds.child("date").getValue(String.class);
+                        String admNo1=ds.child("admNo").getValue(String.class);
+                        String course1=ds.child("course").getValue(String.class);
+                        String institution1=ds.child("institution").getValue(String.class);
+                        String institution_number1=ds.child("institutionPhoneNo").getValue(String.class);
+                        String bank_name1=ds.child("bankName").getValue(String.class);
+                        String bank_account_number1=ds.child("bankAccountNo").getValue(String.class);
+                        String bank_branch1=ds.child("bankBranch").getValue(String.class);
+                        String district1=ds.child("district").getValue(String.class);
+                        String division1=ds.child("division").getValue(String.class);
+                        String location1=ds.child("location").getValue(String.class);
+                        String ward1=ds.child("ward").getValue(String.class);
+                        String constituency1=ds.child("constituency").getValue(String.class);
+                        String sub_location1=ds.child("subLocation").getValue(String.class);
+                        String village1=ds.child("village").getValue(String.class);
+
+                        name.setText(name1);
+                        email.setText(email1);
+                        phone.setText(phone1);
+                        dob.setText(dob1);
+                        admNo.setText(admNo1);
+                        course.setText(course1);
+                        institution.setText(institution1);
+                        institution_number.setText(institution_number1);
+                        bank_name.setText(bank_name1);
+                        bank_account_number.setText(bank_account_number1);
+                        bank_branch.setText(bank_branch1);
+                        district.setText(district1);
+                        division.setText(division1);
+                        location.setText(location1);
+                        ward.setText(ward1);
+                        constituency.setText(constituency1);
+                        sub_location.setText(sub_location1);
+                        village.setText(village1);
+                    }
                 }
-                name.setText(uploadList.get(0).getName());
-                email.setText(uploadList.get(0).getEmail());
-                phone.setText(uploadList.get(0).getPhone());
-                dob.setText(uploadList.get(0).getDate());
-                admNo.setText(uploadList.get(0).getAdmNo());
-                course.setText(uploadList.get(0).getCourse());
-                institution.setText(uploadList.get(0).getInstitution());
-                institution_number.setText(uploadList.get(0).getInstitutionPhoneNo());
-                bank_name.setText(uploadList.get(0).getBankName());
-                bank_account_number.setText(uploadList.get(0).getBankAccountNo());
-                bank_branch.setText(uploadList.get(0).getBankBranch());
-                district.setText(uploadList.get(0).getDistrict());
-                division.setText(uploadList.get(0).getDivision());
-                location.setText(uploadList.get(0).getLocation());
-                ward.setText(uploadList.get(0).getWard());
-                constituency.setText(uploadList.get(0).getConstituency());
-                sub_location.setText(uploadList.get(0).getSubLocation());
-                village.setText(uploadList.get(0).getVillage());
+                // else if the user has not applied for a bursary, create a dialog asking them to apply, then send them to FirstApplicationFragment
+                else {
+                    AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
+                    builder.setTitle("Apply for a bursary");
+                    builder.setMessage("Looks like you're applying for a bursary for the first time. Click OK to apply");
+                    builder.setPositiveButton("Apply", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // navigate to the FirstApplicationFragment
+                            Navigation.findNavController(view).navigate(R.id.nav_firstApplication);
+                        }
+                    });
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.show();
+                }
             }
 
             @Override

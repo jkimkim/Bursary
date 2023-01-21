@@ -50,7 +50,7 @@
     <string name="institution_name">Institution Name</string>
     <string name="course_name">Course Name</string>
     <string name="year_name">Year Name</string>
-    <string name="institution_number">0123456789</string>
+    <string name="institution_number">Institution Phone No</string>
     <string name="course_number">0123456789</string>
     <string name="institution_details">Institution Details</string>
     <string name="bank_details">Bank Details</string>
