@@ -187,9 +187,15 @@ public class ProfileFragment extends Fragment {
                 phoneNo.setText(phone);
                 welcome_text.setText("Welcome "+name + "!");
 
-                //set image view to user's profile picture from firebase using Picasso
+                //check if image is received or not and set image in profile from firebase storage
                 Uri uri = user.getPhotoUrl();
-                Picasso.get().load(uri).into(profileImage);
+                if (uri != null){
+                    Picasso.get().load(uri).into(profileImage);
+                }
+                else {
+                    Picasso.get().load(R.drawable.ic_baseline_add_a_photo_24).into(profileImage);
+                }
+
             }
         });
     }
