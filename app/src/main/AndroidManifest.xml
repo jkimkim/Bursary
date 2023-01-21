@@ -39,6 +39,13 @@
         android:theme="@style/Theme.Bursary"
         tools:targetApi="31">
         <activity
+            android:name=".TermsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ChangeProfile"
             android:exported="false">
             <meta-data
@@ -55,7 +62,7 @@
         <activity
             android:name=".AdminActivity"
             android:exported="true"
-            android:theme="@style/Theme.Bursary.NoActionBar"></activity>
+            android:theme="@style/Theme.Bursary.NoActionBar" />
         <activity
             android:name=".AdminLogin"
             android:exported="false">

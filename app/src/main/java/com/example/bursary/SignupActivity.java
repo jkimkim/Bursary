@@ -96,8 +96,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
     //terms and conditions
     private void termsAndConditions() {
-        TermsAndConditions termsAndConditions = new TermsAndConditions();
-        termsAndConditions.show(getSupportFragmentManager(), "Terms and Conditions");
+        // open TermsActivity
+        startActivity(new Intent(SignupActivity.this, TermsActivity.class));
     }
 
     //register user
