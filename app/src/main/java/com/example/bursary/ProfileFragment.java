@@ -58,7 +58,6 @@ public class ProfileFragment extends Fragment {
         fAuth = FirebaseAuth.getInstance();
         userId = fAuth.getCurrentUser().getUid();
         pd = new ProgressDialog(getContext());
-        fab = view.findViewById(R.id.fab);
 
         fullName = view.findViewById(R.id.full_name);
         email = view.findViewById(R.id.email);
@@ -70,12 +69,6 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 //open ChangeProfile activity
                 startActivity(new Intent(getActivity(), ChangeProfile.class));
-            }
-        });
-        fab.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                showEditProfileDialog();
             }
         });
         welcome_text = view.findViewById(R.id.welcome_text);
