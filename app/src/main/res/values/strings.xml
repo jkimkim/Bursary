@@ -50,7 +50,7 @@
     <string name="institution_name">Institution Name</string>
     <string name="course_name">Course Name</string>
     <string name="year_name">Year Name</string>
-    <string name="institution_number">0123456789</string>
+    <string name="institution_number">Institution Phone No</string>
     <string name="course_number">0123456789</string>
     <string name="institution_details">Institution Details</string>
     <string name="bank_details">Bank Details</string>
@@ -75,8 +75,112 @@
     <string name="phone">Phone</string>
 
     <string name="admin_options">Admin Options</string>
+    <string name="terms">By signing up you agree to the</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="privacy_policy">
 
+        <![CDATA[
+        <h1>CONSENT FOR THE COLLECTION AND PROCESSING OF PERSONAL DATA</h1>
+    <p>Bursary committee is committed to ensuring the security of your information. We have put in place reasonable physical, technical, and administrative safeguards designed to prevent unauthorized access to your information.
+
+<ul>
+        <li>Pursuant to the Data Protection Act, The Bursary committee in its capacity as a data controller and /or processor under the Act, request your explicit, affirmative, and informed consent before it can collect or process your personal data.
+</li>
+        <li>Personal data means any information relating to an identified or identifiable natural person (a data subject). An identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as name, an identification number, location data, an online identifier or to one or more factors specific to the physical, psychological, genetics, mental, economic, cultural, or social identity of that natural person.</li>
+        <li>The categories of personal data you are being asked to consent to Bursary committee collection and use your name as per id, Identification Card Number, Email Address, Telephone Number, Date of Birth, Place of Birth, Institution Details, Parent/Guardian/Sponsor details. More details stated in the privacy notice.</li>
+        <li>Any personal data that is collected from you will be for the sole purpose of;
+        <ul>
+        <li>Application for bursary and scholarship;</li>
+        <li>Appraisal for bursary and scholarship;
+</li>
+        <li>Communication to the administrator at ward levels;
+</li>
+        <li>External Resource Mobilization.</li>
+        <li>To send you SMS’s through USSD (Untrusted Supplementary Service Data) </li>
+        </ul>
+</li>
+<li>Your personal data will be the key enabler, without the data the Bursary committee cannot discharge its mandate of issuing the bursary.</li>
+
+    </ul>
+</p>
+
+    <p>Kindly read this terms and conditions carefully. The following terms and conditions govern access and use of this mobile app. These terms and conditions also govern the content and services offered to you through the app. By accessing, using, printing, installing, or downloading any material from the app, you agree to be bound by these Terms and conditions.</p>
+    <h2>Acceptance</h2>
+    <p>These terms and conditions of use become effective when the user accesses the app for the first time.</p>
+    <p>Access to this Bursary app is at the User’s own risk. If a user is dissatisfied with any of the content of the Bursary or these terms and conditions, a User’s sole remedy is to discontinue use of Bursary app.</p>
+    <h2>Intellectual property rights </h2>
+    <p>This app contains copyright and other intellectual properties including logos belonging to County 005 (Lamu County).</p>
+    <p>The user is authorised to view and download, copy to a local hard drive or disk, print and make copies of such printouts, provided that:
+The material is used for considering use of the online services and for f no other commercial purposes.
+Any reproduction of our proprietary materials from Bursary app or portion of it must include Lamu County copyright notice in its entirety.
+The Logo and trademarks shown in the app are for Lamu County or that of third parties.
+</p>
+    <h2>No Warranty</h2>
+    <p>The information and material contained in the Bursary app, include text, graphics, links or other items are provided ‘as is’ and ‘as available‘. Bursary doesn’t warranty the accuracy, adequacy or completeness of this information and materials and expressly disclaims liability for errors or omissions in this information and materials. No Warranty of any kind, implied, expressed or statutory including but not limited the third party.</p>
+    <p>We don’t warranty or represent that access to the whole or part (s) of this mobile app, the materials, information and/ or functions contained therein will be provided uninterrupted, timely, secure or error -free or that any identified defect will be corrected, or that there will be no delays, failures, or loss of transmitted information, that no viruses or other contaminating or destructive properties will be transmitted or that no damage will occur to your mobile device. The Users understand and agrees that any material and/ data downloaded or otherwise obtained through the use of the app or any of the materials contained therein is done at the User’s own discretion risk. If the User’s use of the app or the material results in the damage and need for servicing or replacing equipment or data, we shall not be responsible for those costs and the User will solely be responsible for any such damages. If the material is provided by third parties, we shall not be held responsible for any such third-party materials.</p>
+    <h2>Amendments to these conditions
+</h2>
+<p>Bursary committee may at this discretion amend these conditions from time to time without notification to the User. By accessing Bursary app, the User are bound to the version of the terms and conditions published at the time of any visit to the Bursary app. The User agrees to view the current version each time Bursary app is visited.
+The current version of these conditions will govern the respective rights and obligations of Bursary committee and the User each time the user accesses Bursary app.
+</p>
+    <h2>Capacity to enter into agreements
+</h2>
+<p>The User hereby warrants to Bursary that the User has the required legal capacity to enter and be bound by these Terms and conditions.
+Minors must be assisted by their legal guardians when reading these terms and conditions.
+</p>
+    <h2>Sending of information
+</h2>
+<p>Information transmitted through an unsecured link over the internet, including e-mail, is subjected to potential unlawful access or monitoring.
+The User accepts that Bursary committee cannot be held liable for any loss, or damage suffered by the User as a result of unlawful activities by unscrupulous persons, as Bursary committee cannot prevent such behaviour.
+</p>
+    <h2>Disclaimer and Limitation of Liability</h2>
+    <p>The use of Bursary app and the online service is entirely at the Users own risk. The User assumes full responsibility for the risk or loss resulting from the use of Bursary app and the User’s reliance on information contained on it.
+In no event Bursary be liable for any damages, whether direct, indirect, special, incidental, or consequential whatsoever relating to the User’s use of Bursary app or the online services or the information contained on Bursary app or the User inability to use Bursary app or the online services, whether such damages arose out of contract or delict or otherwise and regardless of whether the Bursary committee was expressly advised of the possibility of such loss or damage.
+Without derogating from the generality of the above, and to the extent legally permitted, Bursary committee will be liable for:
+Any interruption, malfunction, downtime, off-line situation or other failure of the app or online services, database or any of its components, beyond Bursary committee reasonable control;
+Any loss or damage with regard to the User’s data or other data directly or indirectly caused by malfunction of Bursary system, third-party systems, power failures, unlawful access to or theft of data, computer viruses or destructive code on Bursary system or third-party systems; programming defects;
+Any interruption, malfunction, downtime or other failure of goods or services provided by third parties, including, without limitation, third-party systems such as public -switched telecommunication service providers, electricity, suppliers, local authorities and certification authorities; or any event over which the Bursary committee has no direct control.
+Access to this Bursary app is at the User’s own risk. If a user is dissatisfied with any of the content of the Bursary or these terms and conditions, a User’s sole remedy is to discontinue use of Bursary app.</p>
+    <h2>General Provisions</h2>
+    <p>The heading of the clauses in the conditions is provided for convenience and ease of reference only and will not be used to interpret, modify or amplify the terms of the conditions.
+If any provision of these terms and conditions is found to be invalid by any court having competent jurisdiction, the invalidity of such provision shall not affect the validity of the remaining provisions of these terms and conditions, which shall remain in full force and effect
+</p>
+    ]]>
+
+    </string>
+
+    <string name="Loading">Loading...</string>
+    <string name="NoInternet">No Internet Connection</string>
+    <string name="NoInternetText">Please check your internet connection and try again</string>
+    <string name="NoInternetRetry">Retry</string>
+    <string name="NoInternetExit">Exit</string>
+    <string name="logout">Logout</string>
+    <string name="logout_message">Are you sure you want to logout?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="error">Error</string>
+    <string name="error_message">Something went wrong. Please try again later.</string>
+    <string name="uploading">Uploading...</string>
+    <string name="uploading_message">Please wait while we upload your document</string>
+    <string name="uploading_success">Upload Successful</string>
+    <string name="uploading_success_message">Your document has been uploaded successfully</string>
+    <string name="uploading_failed">Upload Failed</string>
+    <string name="uploading_failed_message">Your document could not be uploaded. Please try again later.</string>
+    <string name="upload_image">Upload Profile Image</string>
+    <string name="upload_image_message">Please select an image to upload</string>
+    <string name="image_description">Profile Image</string>
+    <string name="upload">Upload</string>
+    <string name="full_name">Full Name</string>
     <string name="menu_subsequent_application">Subsequent Application</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edit">edit</string>
+    <string name="save">save</string>
+    <string name="attached_documents">Attached Documents</string>
+    <string name="admission_letter">Admission Letter</string>
+    <string name="fees_receipt">Fees Receipt</string>
+    <string name="student_id">Student ID</string>
+    <string name="first_application">First Application</string>
 </resources>

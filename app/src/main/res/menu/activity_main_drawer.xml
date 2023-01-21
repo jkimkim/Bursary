@@ -16,5 +16,9 @@
             android:id="@+id/profileFragment"
             android:icon="@drawable/ic_baseline_account_circle_24"
             android:title="Profile" />
+        <item
+            android:id="@+id/nav_firstApplication"
+            android:icon="@drawable/circle_shape"
+            android:title="@string/first_application" />
     </group>
 </menu>

@@ -13,4 +13,7 @@
     <color name="blue">#FF1976D2</color>
     <color name="blue_grey">#FF607D8B</color>
     <color name="lamu_amber">#FFFDCA00</color>
+    <color name="lamu_blue">#FF1E88E5</color>
+    <color name="lamu_green">#FF43A047</color>
+    <color name="light_grey">#FFEEEEEE</color>
 </resources>

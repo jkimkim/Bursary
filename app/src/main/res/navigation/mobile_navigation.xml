@@ -22,4 +22,9 @@
         android:name="com.example.bursary.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/nav_firstApplication"
+        android:name="com.example.bursary.FirstApplicationFragment"
+        android:label="@string/first_application"
+        tools:layout="@layout/fragment_first_application" />
 </navigation>

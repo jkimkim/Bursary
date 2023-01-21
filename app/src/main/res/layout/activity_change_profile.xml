@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChangeProfile">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_margin="15dp"
+        android:background="@color/white">
+        <!-- upload image textView -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/upload_image"
+            android:text="@string/upload_image"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+        <!-- upload image button -->
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/upload_image_button"
+            android:text="@string/upload_image"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_below="@id/upload_image"
+            android:backgroundTint="@color/teal_200"
+            android:layout_marginTop="10dp" />
+
+        <!-- imageview to display selected image -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:id="@+id/image_view"
+            android:layout_below="@id/upload_image_button"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/image_description" />
+
+        <!-- upload button -->
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/upload_button"
+            android:text="@string/upload"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_below="@id/image_view"
+            android:backgroundTint="@color/teal_200"
+            android:layout_marginTop="10dp" />
+    </RelativeLayout>
+
+</ScrollView>

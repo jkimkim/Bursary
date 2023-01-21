@@ -307,13 +307,17 @@
                     android:textStyle="bold"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                     android:id="@+id/nIdText"/>
+
                 <ImageView
+                    android:id="@+id/nIdImage"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:layout_margin="5dp"
-                    android:scaleType="fitXY"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
                     android:adjustViewBounds="true"
-                    android:id="@+id/nIdImage"/>
+                    android:scaleType="fitXY" />
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

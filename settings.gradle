@@ -4,6 +4,9 @@ pluginManagement {
         google()
         mavenCentral()
         jcenter()
+        maven {
+            url "https://repo.itextsupport.com/android"
+        }
     }
 }
 dependencyResolutionManagement {
@@ -12,6 +15,9 @@ dependencyResolutionManagement {
         google()
         jcenter()
         mavenCentral()
+        maven {
+            url "https://repo.itextsupport.com/android"
+        }
     }
 }
 rootProject.name = "Bursary"

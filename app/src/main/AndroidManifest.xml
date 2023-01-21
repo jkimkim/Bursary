@@ -3,6 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:requestLegacyExternalStorage="true"
+        tools:ignore="ScopedStorage" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-feature
         android:name="android.software.leanback"
@@ -26,6 +39,13 @@
         android:theme="@style/Theme.Bursary"
         tools:targetApi="31">
         <activity
+            android:name=".ChangeProfile"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AdminSignUp"
             android:exported="false">
             <meta-data
@@ -35,12 +55,10 @@
         <activity
             android:name=".AdminActivity"
             android:exported="true"
-            android:theme="@style/Theme.Bursary.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.Bursary.NoActionBar"></activity>
         <activity
             android:name=".AdminLogin"
             android:exported="false">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
