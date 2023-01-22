@@ -158,7 +158,7 @@ public class GalleryFragment extends Fragment {
 
         // get a reference to the user's application data in the Firebase Realtime Database
 
-        Query query=reference.orderByChild("email").equalTo(user.getEmail());
+        Query query=reference.orderByChild("userId").equalTo(user.getUid());
         query.addValueEventListener(new ValueEventListener(){
 
             @Override
@@ -235,15 +235,15 @@ public class GalleryFragment extends Fragment {
         });
 
         // check if the user has at least eight applications else they cannot apply for a bursary again send them home, create an uncancelable dialog
-        Query query1=reference.orderByChild("email").equalTo(user.getEmail());
+        Query query1=reference.orderByChild("userId").equalTo(user.getUid());
         query1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
-                    if (snapshot.getChildrenCount()>=8){
+                    if (snapshot.getChildrenCount()>=12){
                         AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
                         builder.setTitle("Apply for a bursary");
-                        builder.setMessage("You have already applied for a bursary eight times. You cannot apply for a bursary again");
+                        builder.setMessage("You have already applied for a bursary twelve times. You cannot apply for a bursary again");
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {

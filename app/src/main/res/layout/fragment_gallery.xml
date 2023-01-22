@@ -359,7 +359,7 @@
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/photo_of_birth_certificate"
+                    android:text="@string/fees_receipt"
                     android:gravity="center"
                     android:layout_margin="10dp"
                     android:textColor="@color/black"
@@ -445,20 +445,24 @@
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/photo_of_report_form"
+                    android:text="@string/student_id"
                     android:gravity="center"
                     android:layout_margin="10dp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                     android:id="@+id/reportText"/>
+
                 <ImageView
+                    android:id="@+id/reportImage"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:layout_margin="5dp"
-                    android:scaleType="fitXY"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
                     android:adjustViewBounds="true"
-                    android:id="@+id/reportImage"/>
+                    android:scaleType="fitXY" />
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
