@@ -11,9 +11,9 @@ public class Upload implements Serializable {
     String status;
     String appDate;
     private String name, phone, email, date, admNo, course, institutionPhoneNo,
-            institution, bankName, bankAccountNo, bankBranch, district, division, location, ward, constituency, subLocation, village;
+            institution, bankName, bankAccountNo, bankBranch, district, division, location, ward, constituency, subLocation, village, yearOfStudy;
 
-    public Upload(List<String> downloadUrls, String userId, String uploadId, String gender,String status,String appDate,String name, String phone, String email, String date, String admNo, String course, String institutionPhoneNo, String institution, String bankName, String bankAccountNo, String bankBranch, String district, String division, String location, String ward, String constituency, String subLocation, String village) {
+    public Upload(List<String> downloadUrls, String userId, String uploadId, String gender,String status,String appDate,String name, String phone, String email, String date, String admNo, String course, String institutionPhoneNo, String institution, String bankName, String bankAccountNo, String bankBranch, String district, String division, String location, String ward, String constituency, String subLocation, String village, String yearOfStudy) {
         this.downloadUrls = downloadUrls;
         this.userId = userId;
         this.uploadId=uploadId;
@@ -38,6 +38,7 @@ public class Upload implements Serializable {
         this.constituency = constituency;
         this.subLocation = subLocation;
         this.village = village;
+        this.yearOfStudy = yearOfStudy;
     }
 
     public Upload() {
@@ -233,5 +234,13 @@ public class Upload implements Serializable {
 
     public void setVillage(String village) {
         this.village = village;
+    }
+
+    public String getYearOfStudy() {
+        return yearOfStudy;
+    }
+
+    public void setYearOfStudy(String yearOfStudy) {
+        this.yearOfStudy = yearOfStudy;
     }
 }

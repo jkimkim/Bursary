@@ -102,7 +102,7 @@ public class GalleryFragment extends Fragment {
         }
     }
 
-    private TextView name,phone,email,dob,admNo,course,institution_number,institution,bank_name,bank_account_number,bank_branch,district,division,location,ward,constituency,sub_location,village;
+    private TextView name,phone,email,dob,admNo,course,institution_number,institution,bank_name,bank_account_number,bank_branch,district,division,location,ward,constituency,sub_location,village, yearOfStudy;
 
     FirebaseAuth mAuth;
     FirebaseUser user;
@@ -154,6 +154,7 @@ public class GalleryFragment extends Fragment {
         constituency=view.findViewById(R.id.constituency);
         sub_location=view.findViewById(R.id.sub_location);
         village=view.findViewById(R.id.village);
+        yearOfStudy=view.findViewById(R.id.yearOfStudy);
 
         // get a reference to the user's application data in the Firebase Realtime Database
 
@@ -182,6 +183,7 @@ public class GalleryFragment extends Fragment {
                         String constituency1=ds.child("constituency").getValue(String.class);
                         String sub_location1=ds.child("subLocation").getValue(String.class);
                         String village1=ds.child("village").getValue(String.class);
+                        String yearOfStudy1=ds.child("yearOfStudy").getValue(String.class);
 
                         name.setText(name1);
                         email.setText(email1);
@@ -201,6 +203,7 @@ public class GalleryFragment extends Fragment {
                         constituency.setText(constituency1);
                         sub_location.setText(sub_location1);
                         village.setText(village1);
+                        yearOfStudy.setText(yearOfStudy1);
                     }
                 }
                 // else if the user has not applied for a bursary, create a dialog asking them to apply, then send them to FirstApplicationFragment
@@ -334,7 +337,7 @@ public class GalleryFragment extends Fragment {
                                                 //uploading data to firebase
                                                 DatabaseReference reference= FirebaseDatabase.getInstance().getReference("requests")
                                                         .push();
-                                                Upload upload=new Upload(downloadUrls, FirebaseAuth.getInstance().getCurrentUser().getUid(),String.valueOf(System.currentTimeMillis()),genderButton.getText().toString(),"Pending", Calendar.getInstance().getTime().toString(),name.getText().toString(),phone.getText().toString(),email.getText().toString(),dob.getText().toString(),admNo.getText().toString(),course.getText().toString(),institution_number.getText().toString(),institution.getText().toString(),bank_name.getText().toString(),bank_account_number.getText().toString(),bank_branch.getText().toString(),district.getText().toString(),division.getText().toString(),location.getText().toString(),ward.getText().toString(),constituency.getText().toString(),sub_location.getText().toString(),village.getText().toString());
+                                                Upload upload=new Upload(downloadUrls, FirebaseAuth.getInstance().getCurrentUser().getUid(),String.valueOf(System.currentTimeMillis()),genderButton.getText().toString(),"Pending", Calendar.getInstance().getTime().toString(),name.getText().toString(),phone.getText().toString(),email.getText().toString(),dob.getText().toString(),admNo.getText().toString(),course.getText().toString(),institution_number.getText().toString(),institution.getText().toString(),bank_name.getText().toString(),bank_account_number.getText().toString(),bank_branch.getText().toString(),district.getText().toString(),division.getText().toString(),location.getText().toString(),ward.getText().toString(),constituency.getText().toString(),sub_location.getText().toString(),village.getText().toString(),yearOfStudy.getText().toString());
                                                 reference.setValue(upload)
                                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                             @Override
@@ -593,7 +596,7 @@ public class GalleryFragment extends Fragment {
                                                                 paint.setTextSize(30f);
                                                                 paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
                                                                 paint.setAntiAlias(true);
-                                                                canvas.drawText("Year of Study: ",50,1000,paint);
+                                                                canvas.drawText("Year of Study: "+yearOfStudy.getText().toString(),50,1000,paint);
 
                                                                 //drawing the subheading
                                                                 paint.setColor(Color.BLACK);
