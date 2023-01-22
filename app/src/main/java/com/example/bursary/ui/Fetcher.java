@@ -25,7 +25,7 @@ public class Fetcher {
     FirebaseUser user = mAuth.getCurrentUser();
 
     public void fetchApplications(CompleteListener listener) {
-        Query reference = FirebaseDatabase.getInstance().getReference("requests").orderByChild("email").equalTo(user.getEmail());
+        Query reference = FirebaseDatabase.getInstance().getReference("requests").orderByChild("userId").equalTo(user.getUid());
         eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
