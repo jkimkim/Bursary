@@ -183,4 +183,5 @@ If any provision of these terms and conditions is found to be invalid by any cou
     <string name="fees_receipt">Fees Receipt</string>
     <string name="student_id">Student ID</string>
     <string name="first_application">First Application</string>
+    <string name="year_of_study">Year of Study</string>
 </resources>

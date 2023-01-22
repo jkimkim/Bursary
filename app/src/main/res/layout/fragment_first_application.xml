@@ -94,6 +94,21 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/year_of_study_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:hint="@string/year_of_study">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/year_of_study"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textAutoComplete" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
     <!-- institution details -->
     <!-- the title -->
     <TextView
